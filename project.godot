@@ -13,6 +13,7 @@ config_version=5
 config/name="Just... Enjoy"
 config/description="My goal with this game is to explore the dreams."
 config/version="0.0.0"
+run/main_scene="uid://coaee7u3w63ij"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false

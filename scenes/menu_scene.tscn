@@ -1,37 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgxj78yuvw4kw"]
+[gd_scene load_steps=15 format=3 uid="uid://bgxj78yuvw4kw"]
+
+[ext_resource type="StyleBox" uid="uid://bltc44r50jthm" path="res://resources/menu_tab_container/tab_focus_style.tres" id="1_u4hxd"]
+[ext_resource type="StyleBox" uid="uid://ccbo8qufr3cum" path="res://resources/menu_tab_container/painel_style.tres" id="1_vrre2"]
+[ext_resource type="StyleBox" uid="uid://qg8ha6g7165f" path="res://resources/menu_tab_container/tab_selected_style.tres" id="2_o71fo"]
+[ext_resource type="StyleBox" uid="uid://bqxmkl5wkw5td" path="res://resources/menu_tab_container/tab_hovered_style.tres" id="3_6wmco"]
+[ext_resource type="StyleBox" uid="uid://bij23i6tpev3h" path="res://resources/menu_tab_container/tab_unselected_style.tres" id="4_482oc"]
+[ext_resource type="StyleBox" uid="uid://oypipmf341vs" path="res://resources/menu_buttons/normal_style.tres" id="6_6od1f"]
+[ext_resource type="StyleBox" uid="uid://pgvf28664moo" path="res://resources/menu_buttons/pressed_style.tres" id="6_yfxa8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u4hxd"]
+font_size = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4hxd"]
 
 [sub_resource type="Gradient" id="Gradient_0inr4"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vrre2"]
 gradient = SubResource("Gradient_0inr4")
 fill_from = Vector2(1, 0)
-
-[sub_resource type="Animation" id="Animation_o71fo"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_0inr4"]
 length = 0.001
@@ -60,6 +46,33 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_o71fo"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6wmco"]
 _data = {
 &"RESET": SubResource("Animation_0inr4"),
@@ -81,6 +94,105 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TabContainer" type="TabContainer" parent="Screen/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_unselected_color = Color(0.374139, 0.374139, 0.374139, 1)
+theme_override_colors/font_hovered_color = Color(0.970602, 0.970602, 0.970602, 1)
+theme_override_colors/font_selected_color = Color(0.730216, 0.730216, 0.730216, 1)
+theme_override_styles/tab_focus = ExtResource("1_u4hxd")
+theme_override_styles/panel = ExtResource("1_vrre2")
+theme_override_styles/tab_selected = ExtResource("2_o71fo")
+theme_override_styles/tab_hovered = ExtResource("3_6wmco")
+theme_override_styles/tab_unselected = ExtResource("4_482oc")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Game" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Screen/MarginContainer/TabContainer/Game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Just... Enjoy.
+Okay?"
+label_settings = SubResource("LabelSettings_u4hxd")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_u4hxd")
+
+[node name="Panel" type="Panel" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.866111, 0.866111, 0.866111, 1)
+theme_override_colors/font_color = Color(0.324203, 0.324203, 0.324203, 1)
+theme_override_styles/focus = ExtResource("6_6od1f")
+theme_override_styles/hover = ExtResource("6_6od1f")
+theme_override_styles/pressed = ExtResource("6_yfxa8")
+theme_override_styles/normal = ExtResource("6_6od1f")
+text = "Play"
+
+[node name="ExitButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.866111, 0.866111, 0.866111, 1)
+theme_override_colors/font_color = Color(0.324203, 0.324203, 0.324203, 1)
+theme_override_styles/focus = ExtResource("6_6od1f")
+theme_override_styles/hover = ExtResource("6_6od1f")
+theme_override_styles/pressed = ExtResource("6_yfxa8")
+theme_override_styles/normal = ExtResource("6_6od1f")
+text = "Exit"
+
+[node name="Options" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="FadeTexture" type="TextureRect" parent="."]
 layout_mode = 1
