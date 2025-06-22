@@ -4,7 +4,7 @@ extends TabBar
 
 
 func _on_play_button_pressed() -> void:
-	print("Nothing happens")
+	get_tree().change_scene_to_file("res://scenes/world/debug_scene.tscn")
 
 
 func _on_exit_button_pressed() -> void:
