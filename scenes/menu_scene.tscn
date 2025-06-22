@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgxj78yuvw4kw"]
+[gd_scene load_steps=19 format=3 uid="uid://bgxj78yuvw4kw"]
 
 [ext_resource type="StyleBox" uid="uid://bltc44r50jthm" path="res://resources/menu_tab_container/tab_focus_style.tres" id="1_u4hxd"]
 [ext_resource type="StyleBox" uid="uid://ccbo8qufr3cum" path="res://resources/menu_tab_container/painel_style.tres" id="1_vrre2"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://bqxmkl5wkw5td" path="res://resources/menu_tab_container/tab_hovered_style.tres" id="3_6wmco"]
 [ext_resource type="StyleBox" uid="uid://bij23i6tpev3h" path="res://resources/menu_tab_container/tab_unselected_style.tres" id="4_482oc"]
 [ext_resource type="StyleBox" uid="uid://oypipmf341vs" path="res://resources/menu_buttons/normal_style.tres" id="6_6od1f"]
+[ext_resource type="Script" uid="uid://btsj6g5fg6lu" path="res://scripts/menu_scene/handle_buttons.gd" id="6_axson"]
 [ext_resource type="StyleBox" uid="uid://pgvf28664moo" path="res://resources/menu_buttons/pressed_style.tres" id="6_yfxa8"]
 [ext_resource type="Script" uid="uid://bo2ola1m1g5wt" path="res://scripts/menu_scene/update_settings.gd" id="8_520ac"]
 [ext_resource type="Script" uid="uid://csbpntdby6wfx" path="res://scripts/menu_scene/load_about.gd" id="8_vjll7"]
@@ -129,6 +130,7 @@ current_tab = 0
 
 [node name="Game" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
 layout_mode = 2
+script = ExtResource("6_axson")
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Screen/MarginContainer/TabContainer/Game"]
@@ -286,4 +288,6 @@ libraries = {
 }
 autoplay = "fade_out"
 
+[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/ExitButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_exit_button_pressed"]
 [connection signal="value_changed" from="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider" to="Screen/MarginContainer/TabContainer/Options" method="_on_h_slider_value_changed"]
