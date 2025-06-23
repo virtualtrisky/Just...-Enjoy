@@ -13,7 +13,7 @@ func _ready() -> void:
 		return
 		
 	$MarginContainer/Label.text = "Resources loaded."
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	
 	if Global.config["player.name"] == null:
 		get_tree().change_scene_to_file("res://scenes/set_name_scene.tscn")
