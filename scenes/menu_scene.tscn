@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgxj78yuvw4kw"]
+[gd_scene load_steps=22 format=3 uid="uid://bgxj78yuvw4kw"]
 
+[ext_resource type="Script" uid="uid://b21owjkcni6rr" path="res://scripts/menu_scene/controller.gd" id="1_1iahe"]
 [ext_resource type="StyleBox" uid="uid://bltc44r50jthm" path="res://resources/menu_tab_container/tab_focus_style.tres" id="1_u4hxd"]
 [ext_resource type="StyleBox" uid="uid://ccbo8qufr3cum" path="res://resources/menu_tab_container/painel_style.tres" id="1_vrre2"]
 [ext_resource type="StyleBox" uid="uid://qg8ha6g7165f" path="res://resources/menu_tab_container/tab_selected_style.tres" id="2_o71fo"]
@@ -18,6 +19,9 @@ font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_yfxa8"]
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_1iahe"]
+font_size = 30
 
 [sub_resource type="Gradient" id="Gradient_0inr4"]
 
@@ -52,8 +56,65 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_axson"]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1iahe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6wmco"]
 _data = {
+&"RESET": SubResource("Animation_1iahe"),
+&"fade_in": SubResource("Animation_axson"),
 &"fade_out": SubResource("Animation_o71fo")
 }
 
@@ -64,6 +125,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1iahe")
 
 [node name="Screen" type="Control" parent="."]
 layout_mode = 1
@@ -249,6 +311,25 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 70
 
+[node name="Credits" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicBy" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
+layout_mode = 2
+text = "Musics"
+label_settings = SubResource("LabelSettings_1iahe")
+horizontal_alignment = 1
+
+[node name="Label1" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
+layout_mode = 2
+text = "Long Walks - Emily A. Sprague"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
+layout_mode = 2
+text = "Sleep Music No. 1 - Chris Haugen"
+horizontal_alignment = 1
+
 [node name="Text" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -257,7 +338,7 @@ text = "© VirtualTrisky"
 horizontal_alignment = 1
 
 [node name="FadeTexture" type="TextureRect" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

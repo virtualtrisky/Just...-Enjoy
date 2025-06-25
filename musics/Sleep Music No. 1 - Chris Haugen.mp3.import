@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb6t5hrsu2nw7"
+path="res://.godot/imported/Sleep Music No. 1 - Chris Haugen.mp3-982f367e084fdd299ec47baa3d37e9af.mp3str"
+
+[deps]
+
+source_file="res://musics/Sleep Music No. 1 - Chris Haugen.mp3"
+dest_files=["res://.godot/imported/Sleep Music No. 1 - Chris Haugen.mp3-982f367e084fdd299ec47baa3d37e9af.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -14,6 +14,10 @@ func move(delta: float) -> void:
 
 
 
+func _ready() -> void:
+	Global.play_music("res://musics/Sleep Music No. 1 - Chris Haugen.mp3")
+
+
 func _physics_process(delta: float) -> void:
 	move(delta)
 	

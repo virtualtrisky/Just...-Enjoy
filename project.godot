@@ -22,6 +22,7 @@ config/icon="uid://doakp2318u0xn"
 [autoload]
 
 Global="*res://scripts/global.gd"
+GlobalAudioStreamPlayer="*res://objects/audio_stream_player.tscn"
 
 [display]
 

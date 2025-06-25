@@ -45,3 +45,26 @@ func read_config_file() -> bool:
 	config = json
 	file.close()
 	return true
+
+
+func stop_music():
+	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
+	
+	audio_animation.play("stop_music")
+	await audio_animation.animation_finished
+	GlobalAudioStreamPlayer.stop()
+
+
+func play_music(path: String):
+	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
+	var new_stream = load(path)
+	new_stream = new_stream.duplicate()
+	new_stream.loop = true
+	
+	audio_animation.play("stop_music")
+	await audio_animation.animation_finished
+	GlobalAudioStreamPlayer.stop()
+	
+	GlobalAudioStreamPlayer.stream = new_stream
+	GlobalAudioStreamPlayer.play()
+	audio_animation.play("play_music")

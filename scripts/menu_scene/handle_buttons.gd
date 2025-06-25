@@ -4,10 +4,24 @@ extends TabBar
 
 
 func _on_play_button_pressed() -> void:
+	var fade_animation: AnimationPlayer =  $"../../../../FadeTexture/AnimationPlayer"
+	
+	fade_animation.play("fade_in")
+	Global.stop_music()
+	await fade_animation.animation_finished
 	get_tree().change_scene_to_file("res://scenes/world/debug_scene.tscn")
 
 
 func _on_exit_button_pressed() -> void:
+	var sound_animation: AnimationPlayer = GlobalAudioStreamPlayer.get_children()[0]
+	var fade_animation: AnimationPlayer = $"../../../../FadeTexture/AnimationPlayer"
+	
+	sound_animation.play("stop_music")
+	fade_animation.play("fade_in")
+	
+	await fade_animation.animation_finished
+	await sound_animation.animation_finished
+	
 	get_tree().quit()
 
 
