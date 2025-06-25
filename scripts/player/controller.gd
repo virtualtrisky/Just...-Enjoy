@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const MOVE_SPEED = 1000
+const MOVE_SPEED = 5000
 
 func move(delta: float) -> void:
 	var horizontal := Input.get_axis("move_left", "move_right")

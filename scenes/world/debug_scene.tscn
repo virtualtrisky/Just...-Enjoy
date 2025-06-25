@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://wbi84fu0pmdd"]
+[gd_scene load_steps=4 format=3 uid="uid://wbi84fu0pmdd"]
 
 [ext_resource type="PackedScene" uid="uid://jq8av47j3b6o" path="res://objects/player.tscn" id="1_0h5k3"]
+[ext_resource type="Texture2D" uid="uid://bcxr8txqrys4t" path="res://Cat.png" id="2_16mi4"]
 [ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="2_ucyy2"]
 
 [node name="DebugScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0h5k3")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_ucyy2")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-392, 0)
+texture = ExtResource("2_16mi4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_ucyy2")]
