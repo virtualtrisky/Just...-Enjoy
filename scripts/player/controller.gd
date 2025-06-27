@@ -2,8 +2,16 @@ extends CharacterBody2D
 
 const MOVE_SPEED = 1000
 
+# needless
 const IDLE_SPRITE_PATH = "res://sprites/player/player-idle.png"
 const WALKING_SPRITE_PATH = "res://sprites/player/player-walking.png"
+
+const DIRECTION_MAP: Dictionary = {
+	"move_up":    "WALK_UP",
+	"move_down":  "WALK_DOWN",
+	"move_right": "WALK_RIGHT",
+	"move_left":  "WALK_LEFT"
+}
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -12,10 +20,10 @@ var current_animation = "IDLE"
 
 func update_animation() -> void:
 	if animation != current_animation:
-		sprite.texture = load(IDLE_SPRITE_PATH) if animation == "IDLE" else load(WALKING_SPRITE_PATH)
 		current_animation = animation
 	
-	animation_player.play(animation)
+	if animation != "IDLE": animation_player.play(animation)
+	else: sprite.frame_coords.x = 3
 
 func move(delta: float) -> void:
 	var horizontal := Input.get_axis("move_left", "move_right")
@@ -34,11 +42,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if    Input.is_action_pressed("move_left"):  animation = "WALK_LEFT"
-	elif  Input.is_action_pressed("move_right"): animation = "WALK_RIGHT"
-	elif  Input.is_action_pressed("move_up"):    animation = "WALK_UP"
-	elif  Input.is_action_pressed("move_down"):  animation = "WALK_DOWN"
-	else: animation = "IDLE"
+	animation = "IDLE"
+	for action in DIRECTION_MAP.keys():
+		if Input.is_action_pressed(action):
+			animation = DIRECTION_MAP[action]
+			break
 	
 	update_animation()
 
