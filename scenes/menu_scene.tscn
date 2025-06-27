@@ -208,6 +208,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
+[node name="DebugButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.866111, 0.866111, 0.866111, 1)
+theme_override_colors/font_color = Color(0.324203, 0.324203, 0.324203, 1)
+theme_override_styles/focus = ExtResource("6_yfxa8")
+theme_override_styles/hover = ExtResource("6_6od1f")
+theme_override_styles/pressed = ExtResource("6_yfxa8")
+theme_override_styles/normal = ExtResource("6_6od1f")
+text = "Debug Scene"
+
 [node name="PlayButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
@@ -354,6 +365,7 @@ libraries = {
 }
 autoplay = "fade_out"
 
+[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/DebugButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_debug_button_pressed"]
 [connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/ContinueButton2" to="Screen/MarginContainer/TabContainer/Game" method="_on_continue_button_2_pressed"]
 [connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/ExitButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_exit_button_pressed"]
