@@ -43,10 +43,15 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	animation = "IDLE"
-	for action in DIRECTION_MAP.keys():
-		if Input.is_action_pressed(action):
-			animation = DIRECTION_MAP[action]
-			break
+	#for action in DIRECTION_MAP.keys():
+	#	if Input.is_action_pressed(action):
+	#		animation = DIRECTION_MAP[action]
+	#		break
+	
+	if velocity.x < 0: animation = "WALK_LEFT"
+	elif velocity.x > 0: animation = "WALK_RIGHT"
+	elif velocity.y > 0: animation = "WALK_DOWN"
+	elif velocity.y < 0: animation = "WALK_UP"
 	
 	update_animation()
 
