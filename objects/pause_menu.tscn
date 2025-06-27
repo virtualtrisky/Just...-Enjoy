@@ -4,17 +4,14 @@
 [ext_resource type="Script" uid="uid://p77fc73b2emf" path="res://scripts/pause_manager.gd" id="1_koxkd"]
 [ext_resource type="StyleBox" uid="uid://oypipmf341vs" path="res://resources/menu_buttons/normal_style.tres" id="2_8x80a"]
 
-[sub_resource type="Gradient" id="Gradient_g4ivv"]
-offsets = PackedFloat32Array(0, 0.156566, 0.99495, 1)
-colors = PackedColorArray(0, 0, 0, 0.870588, 0, 0, 0, 0.870588, 0, 0, 0, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_koxkd"]
+offsets = PackedFloat32Array(0, 0.193939, 1)
+colors = PackedColorArray(0, 0, 0, 0.67451, 0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aktha"]
-gradient = SubResource("Gradient_g4ivv")
-width = 512
-height = 512
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ijiw3"]
+gradient = SubResource("Gradient_koxkd")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-repeat = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4ivv"]
 font_size = 50
@@ -40,14 +37,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="PauseScreen"]
-modulate = Color(1, 1, 1, 0.603922)
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_aktha")
+texture = SubResource("GradientTexture2D_ijiw3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen"]
 layout_mode = 1

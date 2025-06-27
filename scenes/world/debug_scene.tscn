@@ -15,3 +15,5 @@ texture = ExtResource("2_16mi4")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_ucyy2")]
+
+[editable path="CanvasLayer/PauseMenu"]
