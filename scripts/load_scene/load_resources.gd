@@ -19,4 +19,6 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://scenes/set_name_scene.tscn")
 		return
 	
+	var master_volume: float = Global.config["config.volume.master"] / 100
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(master_volume))
 	get_tree().change_scene_to_file("res://scenes/menu_scene.tscn")

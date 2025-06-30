@@ -19,7 +19,6 @@ func write_config_file() -> bool:
 		print("Failed to create file")
 		return false
 	
-	print("Resources created")
 	file.store_string(json_str)
 	file.close()
 	return true
@@ -41,7 +40,6 @@ func read_config_file() -> bool:
 		return false
 	
 	
-	print("Resources loaded")
 	config = json
 	file.close()
 	return true

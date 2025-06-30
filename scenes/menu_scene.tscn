@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgxj78yuvw4kw"]
+[gd_scene load_steps=25 format=3 uid="uid://bgxj78yuvw4kw"]
 
 [ext_resource type="Script" uid="uid://b21owjkcni6rr" path="res://scripts/menu_scene/controller.gd" id="1_1iahe"]
 [ext_resource type="StyleBox" uid="uid://bltc44r50jthm" path="res://resources/menu_tab_container/tab_focus_style.tres" id="1_u4hxd"]
@@ -11,11 +11,17 @@
 [ext_resource type="StyleBox" uid="uid://pgvf28664moo" path="res://resources/menu_buttons/pressed_style.tres" id="6_yfxa8"]
 [ext_resource type="Script" uid="uid://bo2ola1m1g5wt" path="res://scripts/menu_scene/update_settings.gd" id="8_520ac"]
 [ext_resource type="Script" uid="uid://csbpntdby6wfx" path="res://scripts/menu_scene/load_about.gd" id="8_vjll7"]
+[ext_resource type="Script" uid="uid://2lr3y3d8lt1m" path="res://scripts/menu_scene/hello_message.gd" id="10_my6g0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u4hxd"]
 font_size = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4hxd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_my6g0"]
+font_size = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iahe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yfxa8"]
 font_size = 40
@@ -252,6 +258,12 @@ theme_override_styles/pressed = ExtResource("6_yfxa8")
 theme_override_styles/normal = ExtResource("6_6od1f")
 text = "Exit"
 
+[node name="HelloMessage" type="Label" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Hello, [playername]"
+horizontal_alignment = 1
+script = ExtResource("10_my6g0")
+
 [node name="Options" type="TabBar" parent="Screen/MarginContainer/TabContainer" node_paths=PackedStringArray("MasterVolumeSlider")]
 visible = false
 layout_mode = 2
@@ -276,7 +288,14 @@ layout_mode = 2
 
 [node name="VolumeCamp" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp"]
+texture_filter = 1
+layout_mode = 2
+text = "sound"
+label_settings = SubResource("LabelSettings_my6g0")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MasterVolume" type="HBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp"]
 layout_mode = 2
@@ -290,6 +309,128 @@ text = "Master Volume"
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 value = 100.0
+
+[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1iahe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_my6g0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="MoveUp" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveUp"]
+texture_filter = 1
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+text = "Move Up"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveUp"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "ARROW UP"
+flat = true
+
+[node name="MoveLeft" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveLeft"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+text = "Move Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveLeft"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "ARROW LEFT"
+flat = true
+
+[node name="MoveDown" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveDown"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+text = "Move Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveDown"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "ARROW DOWN"
+flat = true
+
+[node name="MoveRight" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+text = "Move Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "ARROW RIGHT"
+flat = true
+
+[node name="MoveRight2" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight2"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+text = "Action"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight2"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "X"
+flat = true
 
 [node name="About" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
 visible = false
@@ -327,25 +468,27 @@ layout_mode = 2
 
 [node name="MusicBy" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
 layout_mode = 2
-text = "Musics"
+text = "Musics By"
 label_settings = SubResource("LabelSettings_1iahe")
 horizontal_alignment = 1
 
 [node name="Label1" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
 layout_mode = 2
-text = "Long Walks - Emily A. Sprague"
+text = "Emily A. Sprague - Long Walks"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
 layout_mode = 2
-text = "Sleep Music No. 1 - Chris Haugen"
+text = "Chris Haugen -  Sleep Music No. 1"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Text" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
-text = "© VirtualTrisky"
+text = "© VirtualTrisky & N"
 horizontal_alignment = 1
 
 [node name="FadeTexture" type="TextureRect" parent="."]
