@@ -7,7 +7,7 @@
 [node name="DebugScene" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-227, 0)
+position = Vector2(-98, 4)
 texture = ExtResource("2_16mi4")
 
 [node name="Player" parent="." instance=ExtResource("1_0h5k3")]

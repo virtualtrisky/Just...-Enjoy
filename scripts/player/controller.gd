@@ -23,7 +23,10 @@ func update_animation() -> void:
 		current_animation = animation
 	
 	if animation != "IDLE": animation_player.play(animation)
-	else: sprite.frame_coords.x = 3
+	else: sprite.frame_coords.x = 0
+	#elif current_animation != "IDLE":
+	#	current_animation = "IDLE"
+	#	animation_player.play("IDLE")
 
 func move(delta: float) -> void:
 	var horizontal := Input.get_axis("move_left", "move_right")

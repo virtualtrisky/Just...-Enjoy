@@ -346,7 +346,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveUp"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "ARROW UP"
@@ -366,7 +366,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveLeft"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "ARROW LEFT"
@@ -386,7 +386,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveDown"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "ARROW DOWN"
@@ -406,7 +406,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "ARROW RIGHT"
@@ -426,7 +426,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight2"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "X"
