@@ -3,7 +3,7 @@ extends Node
 
 const config_file_path: String = "user://config.json"
 var config: Dictionary = {
-	"config.app_version": "0.0.0",
+	"config.app_version": "0.0.1-test",
 	"config.volume.master": 100,
 	"player.name": null
 }
