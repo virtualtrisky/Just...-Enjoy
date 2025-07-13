@@ -5,10 +5,13 @@ extends Control
 func _ready() -> void:
 	PauseScreen.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("key_pause"):
 		get_tree().paused = not get_tree().paused
 		PauseScreen.visible = get_tree().paused
+		
+		if get_tree().paused == true:
+			$PauseScreen/VBoxContainer/ContinueBtn.grab_focus()
 
 
 func _on_continue_btn_pressed() -> void:

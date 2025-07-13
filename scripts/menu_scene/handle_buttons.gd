@@ -3,6 +3,10 @@
 extends TabBar
 
 
+func _ready() -> void:
+	$MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton.grab_focus()
+
+
 func _on_play_button_pressed() -> void:
 	var fade_animation: AnimationPlayer =  $"../../../../FadeTexture/AnimationPlayer"
 	

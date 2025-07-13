@@ -29,6 +29,7 @@ grow_vertical = 2
 script = ExtResource("1_koxkd")
 
 [node name="PauseScreen" type="Control" parent="."]
+process_mode = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,7 +72,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_8x80a")
 
 [node name="ContinueBtn" type="Button" parent="PauseScreen/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/focus = ExtResource("2_8x80a")
+theme_override_styles/focus = ExtResource("1_aktha")
 theme_override_styles/hover = ExtResource("2_8x80a")
 theme_override_styles/pressed = ExtResource("1_aktha")
 theme_override_styles/normal = ExtResource("2_8x80a")
@@ -79,7 +80,7 @@ text = "Continue"
 
 [node name="QuitBtn" type="Button" parent="PauseScreen/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/focus = ExtResource("2_8x80a")
+theme_override_styles/focus = ExtResource("1_aktha")
 theme_override_styles/hover = ExtResource("2_8x80a")
 theme_override_styles/pressed = ExtResource("1_aktha")
 theme_override_styles/normal = ExtResource("2_8x80a")

@@ -167,6 +167,7 @@ theme_override_styles/tab_hovered = ExtResource("3_6wmco")
 theme_override_styles/tab_unselected = ExtResource("4_482oc")
 tab_alignment = 1
 current_tab = 0
+deselect_enabled = true
 
 [node name="Game" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
 layout_mode = 2
@@ -217,8 +218,13 @@ theme_override_constants/separation = 20
 [node name="DebugButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../PlayButton")
 theme_override_colors/font_hover_color = Color(0.866111, 0.866111, 0.866111, 1)
 theme_override_colors/font_color = Color(0.324203, 0.324203, 0.324203, 1)
+theme_override_colors/font_focus_color = Color(0.883378, 0.883378, 0.883378, 1)
 theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
@@ -228,19 +234,29 @@ text = "Debug Scene"
 [node name="PlayButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../DebugButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../ContinueButton")
 theme_override_colors/font_hover_color = Color(0.866111, 0.866111, 0.866111, 1)
 theme_override_colors/font_color = Color(0.324203, 0.324203, 0.324203, 1)
+theme_override_colors/font_focus_color = Color(0.883378, 0.883378, 0.883378, 1)
 theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
 theme_override_styles/normal = ExtResource("6_6od1f")
 text = "New History"
 
-[node name="ContinueButton2" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../ExitButton")
 theme_override_colors/font_hover_color = Color(0.866111, 0.866111, 0.866111, 1)
 theme_override_colors/font_color = Color(0.324203, 0.324203, 0.324203, 1)
+theme_override_colors/font_focus_color = Color(0.883378, 0.883378, 0.883378, 1)
 theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
@@ -250,8 +266,13 @@ text = "Diary"
 [node name="ExitButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../DebugButton")
 theme_override_colors/font_hover_color = Color(0.866111, 0.866111, 0.866111, 1)
 theme_override_colors/font_color = Color(0.324203, 0.324203, 0.324203, 1)
+theme_override_colors/font_focus_color = Color(0.883378, 0.883378, 0.883378, 1)
 theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
@@ -308,6 +329,8 @@ text = "Master Volume"
 [node name="HSlider" type="HSlider" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
 value = 100.0
 
 [node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
@@ -412,24 +435,64 @@ size_flags_horizontal = 10
 text = "ARROW RIGHT"
 flat = true
 
-[node name="MoveRight2" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Action" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_constants/h_separation = 50
 columns = 2
 
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight2"]
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Action"]
 custom_minimum_size = Vector2(97, 0)
 layout_mode = 2
 text = "Action"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight2"]
+[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Action"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "X"
+flat = true
+
+[node name="Pause" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Pause"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+text = "pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Pause"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "escape"
+flat = true
+
+[node name="Menu" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Menu"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+text = "menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Menu"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "tab"
 flat = true
 
 [node name="About" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
@@ -465,6 +528,7 @@ theme_override_constants/separation = 70
 
 [node name="Credits" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="MusicBy" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
 layout_mode = 2
@@ -510,6 +574,6 @@ autoplay = "fade_out"
 
 [connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/DebugButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_debug_button_pressed"]
 [connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/ContinueButton2" to="Screen/MarginContainer/TabContainer/Game" method="_on_continue_button_2_pressed"]
+[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/ContinueButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_continue_button_2_pressed"]
 [connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/ExitButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_exit_button_pressed"]
 [connection signal="value_changed" from="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider" to="Screen/MarginContainer/TabContainer/Options" method="_on_h_slider_value_changed"]
