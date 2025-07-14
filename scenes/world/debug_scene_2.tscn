@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=4 uid="uid://tfjaw3gaf78a"]
+
+[ext_resource type="PackedScene" uid="uid://b2q8gy1usaik4" path="res://objects/map_change_loader.tscn" id="1_ohkgl"]
+[ext_resource type="TileSet" uid="uid://bty12rgpv1ly6" path="res://tilesets/test_tileset.tres" id="2_egf4r"]
+[ext_resource type="PackedScene" uid="uid://jq8av47j3b6o" path="res://objects/player.tscn" id="2_xrclu"]
+[ext_resource type="PackedScene" uid="uid://c42ft0ylakiny" path="res://objects/map_changer.tscn" id="3_3b7h3"]
+[ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="3_ohkgl"]
+[ext_resource type="PackedScene" uid="uid://duqvcuywls6o0" path="res://objects/fade_screen.tscn" id="4_egf4r"]
+
+[node name="DebugScene2" type="Node2D"]
+
+[node name="MapChangeLoader" parent="." node_paths=PackedStringArray("fade_screen", "player") instance=ExtResource("1_ohkgl")]
+fade_screen = NodePath("../CanvasLayer/FadeScreen")
+player = NodePath("../Player")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Floor" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray("AAD+//f/AQAAAAIAAAD+//j/AQAAAAIAAAD+//n/AQAAAAIAAAD+//r/AQAAAAIAAAD+//v/AQAAAAIAAAD+//z/AQAAAAIAAAD///f/AQAAAAIAAAD///j/AQAAAAIAAAD///n/AQAAAAIAAAD///r/AQAAAAIAAAD///v/AQAAAAIAAAD///z/AQAAAAIAAAAAAPf/AQAAAAAAAAAAAPj/AQAAAAIAAAAAAPn/AQAAAAIAAAAAAPr/AQAAAAIAAAAAAPv/AQAAAAIAAAAAAPz/AQAAAAIAAAABAPf/AQAAAAEAAAABAPj/AQAAAAAAAAABAPn/AQAAAAIAAAABAPr/AQAAAAAAAAABAPv/AQAAAAEAAAABAPz/AQAAAAIAAAACAPf/AQAAAAIAAAACAPj/AQAAAAIAAAACAPn/AQAAAAEAAAACAPr/AQAAAAIAAAACAPv/AQAAAAIAAAACAPz/AQAAAAIAAAADAPf/AQAAAAIAAAADAPj/AQAAAAIAAAADAPn/AQAAAAIAAAADAPr/AQAAAAIAAAADAPv/AQAAAAIAAAADAPz/AQAAAAMAAAD+//H/AQAAAAIAAAD+//L/AQAAAAIAAAD+//P/AQAAAAIAAAD+//T/AQAAAAIAAAD+//X/AQAAAAMAAAD+//b/AQAAAAEAAAD///H/AQAAAAIAAAD///L/AQAAAAIAAAD///P/AQAAAAIAAAD///T/AQAAAAEAAAD///X/AQAAAAAAAAD///b/AQAAAAMAAAAAAPH/AQAAAAIAAAAAAPL/AQAAAAMAAAAAAPP/AQAAAAIAAAAAAPT/AQAAAAIAAAAAAPX/AQAAAAIAAAAAAPb/AQAAAAIAAAABAPH/AQAAAAIAAAABAPL/AQAAAAIAAAABAPP/AQAAAAIAAAABAPT/AQAAAAIAAAABAPX/AQAAAAIAAAABAPb/AQAAAAIAAAACAPH/AQAAAAIAAAACAPL/AQAAAAIAAAACAPP/AQAAAAIAAAACAPT/AQAAAAIAAAACAPX/AQAAAAEAAAACAPb/AQAAAAIAAAADAPH/AQAAAAIAAAADAPL/AQAAAAIAAAADAPP/AQAAAAIAAAADAPT/AQAAAAIAAAADAPX/AQAAAAIAAAADAPb/AQAAAAIAAAA=")
+tile_set = ExtResource("2_egf4r")
+
+[node name="Walls" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray("AAD9//H/AQABAAAAAAD9//L/AQABAAIAAAD9//P/AQABAAAAAAD9//T/AQABAAIAAAD9//b/AQABAAIAAAD9//X/AQABAAIAAAD9//f/AQABAAAAAAD9//j/AQABAAEAAAD9//n/AQABAAEAAAD9//r/AQABAAAAAAD9//v/AQABAAEAAAD9//z/AQABAAIAAAD+//D/AQACAAIAAAD///D/AQACAAIAAAABAPD/AQACAAIAAAACAPD/AQACAAIAAAADAPD/AQACAAIAAAAEAPH/AQADAAEAAAAEAPL/AQADAAEAAAAEAPP/AQADAAEAAAAEAPT/AQADAAEAAAAEAPX/AQADAAEAAAAEAPb/AQADAAEAAAAEAPf/AQADAAEAAAAEAPj/AQADAAEAAAAEAPn/AQADAAEAAAAEAPr/AQADAAEAAAAEAPv/AQADAAEAAAAEAPz/AQADAAEAAAA=")
+tile_set = ExtResource("2_egf4r")
+
+[node name="MapChanger" parent="Map" node_paths=PackedStringArray("player", "fade_screen") instance=ExtResource("3_3b7h3")]
+position = Vector2(8, -248)
+player = NodePath("../../Player")
+fade_screen = NodePath("../../CanvasLayer/FadeScreen")
+map_path = "res://scenes/world/debug_scene.tscn"
+to_position = Vector2(-56, -32)
+
+[node name="Player" parent="." instance=ExtResource("2_xrclu")]
+position = Vector2(8, -224)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_ohkgl")]
+
+[node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("4_egf4r")]

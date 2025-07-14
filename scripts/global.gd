@@ -1,5 +1,14 @@
 extends Node
 
+var player_can_move: bool = true
+
+# used when map changes when a "map_changer" is used
+var map_changer_options: Dictionary = {
+	"position": Vector2(0, 0),
+	"frame_y": int(0),
+	"used": false
+}
+
 
 const config_file_path: String = "user://config.json"
 var config: Dictionary = {

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const MOVE_SPEED = 1000
+const MOVE_SPEED = 1200
 
 # needless
 const IDLE_SPRITE_PATH = "res://sprites/player/player-idle.png"
@@ -29,6 +29,10 @@ func update_animation() -> void:
 	#	animation_player.play("IDLE")
 
 func move(delta: float) -> void:
+	if Global.player_can_move == false:
+		velocity = Vector2.ZERO
+		return
+	
 	var horizontal := Input.get_axis("move_left", "move_right")
 	var vertical   := Input.get_axis("move_up", "move_down")
 	var direction  := Vector2(horizontal, vertical)

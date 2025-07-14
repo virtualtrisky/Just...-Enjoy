@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2q8gy1usaik4"]
+
+[ext_resource type="Script" uid="uid://by05isafro6f" path="res://scripts/map_changer/loader.gd" id="1_7lki8"]
+
+[node name="MapChangeLoader" type="Node2D" node_paths=PackedStringArray("fade_screen", "player")]
+process_priority = -1
+script = ExtResource("1_7lki8")
+fade_screen = NodePath("")
+player = NodePath("")

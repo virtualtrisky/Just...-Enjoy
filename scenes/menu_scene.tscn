@@ -167,7 +167,6 @@ theme_override_styles/tab_hovered = ExtResource("3_6wmco")
 theme_override_styles/tab_unselected = ExtResource("4_482oc")
 tab_alignment = 1
 current_tab = 0
-deselect_enabled = true
 
 [node name="Game" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
 layout_mode = 2
@@ -277,7 +276,7 @@ theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
 theme_override_styles/normal = ExtResource("6_6od1f")
-text = "Exit"
+text = "Quit"
 
 [node name="HelloMessage" type="Label" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,17 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://wbi84fu0pmdd"]
+[gd_scene load_steps=8 format=4 uid="uid://wbi84fu0pmdd"]
 
 [ext_resource type="PackedScene" uid="uid://jq8av47j3b6o" path="res://objects/player.tscn" id="1_0h5k3"]
+[ext_resource type="PackedScene" uid="uid://b2q8gy1usaik4" path="res://objects/map_change_loader.tscn" id="1_jt2pn"]
 [ext_resource type="Texture2D" uid="uid://bcxr8txqrys4t" path="res://Cat.png" id="2_16mi4"]
 [ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="2_ucyy2"]
+[ext_resource type="TileSet" uid="uid://bty12rgpv1ly6" path="res://tilesets/test_tileset.tres" id="3_afxy4"]
+[ext_resource type="PackedScene" uid="uid://c42ft0ylakiny" path="res://objects/map_changer.tscn" id="3_fr3mx"]
+[ext_resource type="PackedScene" uid="uid://duqvcuywls6o0" path="res://objects/fade_screen.tscn" id="6_r2fgq"]
 
 [node name="DebugScene" type="Node2D"]
 
+[node name="MapChangeLoader" parent="." node_paths=PackedStringArray("fade_screen", "player") instance=ExtResource("1_jt2pn")]
+fade_screen = NodePath("../CanvasLayer/FadeScreen")
+player = NodePath("../Player")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
 position = Vector2(-98, 4)
 texture = ExtResource("2_16mi4")
 
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Floor" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray("AAD6//n/AQAAAAMAAAD6//r/AQAAAAIAAAD6//v/AQAAAAIAAAD6//z/AQAAAAIAAAD6//3/AQAAAAIAAAD6//7/AQAAAAMAAAD7//n/AQAAAAEAAAD7//r/AQAAAAIAAAD7//v/AQAAAAIAAAD7//z/AQAAAAIAAAD7//3/AQAAAAEAAAD7//7/AQAAAAIAAAD8//n/AQAAAAIAAAD8//r/AQAAAAIAAAD8//v/AQAAAAIAAAD8//z/AQAAAAMAAAD8//3/AQAAAAIAAAD8//7/AQAAAAAAAAD9//n/AQAAAAIAAAD9//r/AQAAAAIAAAD9//v/AQAAAAIAAAD9//z/AQAAAAIAAAD9//3/AQAAAAIAAAD9//7/AQAAAAIAAAD+//n/AQAAAAMAAAD+//r/AQAAAAIAAAD+//v/AQAAAAIAAAD+//z/AQAAAAIAAAD+//3/AQAAAAIAAAD+//7/AQAAAAIAAAD///n/AQAAAAIAAAD///r/AQAAAAIAAAD///v/AQAAAAIAAAD///z/AQAAAAEAAAD///3/AQAAAAIAAAD///7/AQAAAAIAAAAAAPn/AQAAAAIAAAAAAPr/AQAAAAMAAAAAAPv/AQAAAAIAAAAAAPz/AQAAAAMAAAAAAP3/AQAAAAIAAAAAAP7/AQAAAAIAAAABAPn/AQAAAAEAAAABAPr/AQAAAAIAAAABAPv/AQAAAAIAAAABAPz/AQAAAAAAAAABAP3/AQAAAAIAAAABAP7/AQAAAAIAAAACAPn/AQAAAAIAAAACAPr/AQAAAAAAAAACAPv/AQAAAAIAAAACAPz/AQAAAAIAAAACAP3/AQAAAAMAAAACAP7/AQAAAAIAAAADAPn/AQAAAAIAAAADAPr/AQAAAAIAAAADAPv/AQAAAAIAAAADAPz/AQAAAAEAAAADAP3/AQAAAAIAAAADAP7/AQAAAAIAAAD6//j/AQAAAAIAAAD7//j/AQAAAAIAAAD8//j/AQAAAAIAAAD9//j/AQAAAAIAAAD+//j/AQAAAAMAAAD///j/AQAAAAIAAAAAAPj/AQAAAAMAAAABAPj/AQAAAAIAAAACAPj/AQAAAAIAAAADAPj/AQAAAAIAAAA=")
+tile_set = ExtResource("3_afxy4")
+
+[node name="Walls" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray("AAD5//n/AQABAAAAAAD5//r/AQABAAAAAAD5//v/AQABAAAAAAD5//j/AQABAAIAAAD6//f/AQACAAEAAAD7//f/AQACAAEAAAD8//f/AQACAAEAAAD9//f/AQACAAEAAAD+//f/AQACAAEAAAD///f/AQACAAEAAAAAAPf/AQACAAEAAAABAPf/AQACAAEAAAACAPf/AQACAAEAAAADAPf/AQACAAEAAAD6//b/AQACAAIAAAD7//b/AQACAAIAAAD8//b/AQACAAIAAAD9//b/AQACAAIAAAD+//b/AQACAAIAAAD///b/AQACAAIAAAAAAPb/AQACAAIAAAABAPb/AQACAAIAAAACAPb/AQACAAIAAAADAPb/AQACAAIAAAD5//f/AQABAAEAAAAEAPf/AQADAAEAAAAEAPj/AQADAAEAAAAEAPn/AQADAAEAAAAEAPr/AQADAAEAAAAEAPv/AQADAAEAAAAEAPz/AQADAAEAAAAEAP3/AQADAAEAAAAEAP7/AQADAAEAAAD5//z/AQABAAEAAAD5//3/AQABAAEAAAD5//7/AQABAAEAAAD6////AQACAAAAAAD7////AQACAAAAAAD9////AQACAAAAAAD/////AQACAAAAAAAAAP//AQACAAAAAAABAP//AQACAAAAAAACAP//AQACAAAAAAADAP//AQACAAAAAAD+////AQACAAAAAAA=")
+tile_set = ExtResource("3_afxy4")
+
+[node name="MapChanger" parent="Map" node_paths=PackedStringArray("player", "fade_screen") instance=ExtResource("3_fr3mx")]
+position = Vector2(-56, -8)
+player = NodePath("../../Player")
+fade_screen = NodePath("../../CanvasLayer/FadeScreen")
+map_path = "res://scenes/world/debug_scene_2.tscn"
+to_position = Vector2(8, -224)
+
 [node name="Player" parent="." instance=ExtResource("1_0h5k3")]
+position = Vector2(48, -88)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_ucyy2")]
+
+[node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("6_r2fgq")]
+process_physics_priority = -1

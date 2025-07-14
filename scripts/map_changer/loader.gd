@@ -1,0 +1,14 @@
+extends Node2D
+
+@export var fade_screen: Control
+@export var player: CharacterBody2D
+
+func _ready() -> void:
+	await get_tree().create_timer(0.1).timeout
+	if Global.map_changer_options.used:
+		player.position = Global.map_changer_options.position
+		player.sprite.frame_coords.y = Global.map_changer_options.frame_y
+		
+		await fade_screen.await_finish()
+		Global.map_changer_options.used = false
+		Global.player_can_move = true
