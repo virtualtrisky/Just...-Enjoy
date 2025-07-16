@@ -3,6 +3,8 @@ extends Node2D
 @export var fade_screen: Control
 @export var player: CharacterBody2D
 
+var finished: bool = false
+
 func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	if Global.map_changer_options.used:
@@ -15,5 +17,8 @@ func _ready() -> void:
 	
 	
 	# play music
+	print(Global.is_music_playing)
 	if not Global.is_music_playing:
 		Global.play_music("res://musics/Sleep Music No. 1 - Chris Haugen.mp3")
+	
+	finished = true

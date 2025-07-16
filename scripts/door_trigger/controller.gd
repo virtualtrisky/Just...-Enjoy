@@ -6,9 +6,9 @@ extends Area2D
 @export var player: CharacterBody2D
 
 var player_nearby: bool = false
+var player_entered: bool = false
 
 func change_scene():
-	
 	Global.map_changer_options["position"] = to_position
 	Global.map_changer_options["frame_y"] = player.sprite.frame_coords.y
 	Global.map_changer_options["used"] = true
@@ -18,14 +18,18 @@ func change_scene():
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("key_action"): change_scene()
+	if player.map_loader.finished and Input.is_action_just_pressed("key_action") and player_nearby and not player_entered:
+		player_entered = true
+		change_scene()
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player": return
+	print("player entered")
 	player_nearby = true
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.name != "Player": return
+	print("player exited")
 	player_nearby = false

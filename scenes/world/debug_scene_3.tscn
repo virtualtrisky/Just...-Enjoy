@@ -42,8 +42,9 @@ to_position = Vector2(-8, -120)
 fade_screen = NodePath("../../../CanvasLayer/FadeScreen")
 player = NodePath("../../../Player")
 
-[node name="Player" parent="." instance=ExtResource("3_wva83")]
+[node name="Player" parent="." node_paths=PackedStringArray("map_loader") instance=ExtResource("3_wva83")]
 position = Vector2(8, 32)
+map_loader = NodePath("../MapChangeLoader")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

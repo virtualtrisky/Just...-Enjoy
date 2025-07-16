@@ -13,6 +13,7 @@ func _on_play_button_pressed() -> void:
 	fade_animation.play("fade_in")
 	Global.stop_music()
 	await fade_animation.animation_finished
+	await Global.wait_music_event()
 	get_tree().change_scene_to_file("res://scenes/world/bedroom.tscn")
 
 
@@ -40,7 +41,8 @@ func _on_continue_button_2_pressed() -> void:
 func _on_debug_button_pressed() -> void:
 	var fade_animation: AnimationPlayer = $"../../../../FadeTexture/AnimationPlayer"
 	
-	fade_animation.play("fade_in")
 	Global.stop_music()
+	fade_animation.play("fade_in")
 	await fade_animation.animation_finished
+	await Global.wait_music_event()
 	get_tree().change_scene_to_file("res://scenes/world/debug_scene.tscn")

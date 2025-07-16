@@ -63,6 +63,11 @@ func read_config_file() -> bool:
 	return true
 
 
+func wait_music_event() -> Signal:
+	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
+	
+	return audio_animation.animation_finished
+
 func stop_music() -> void:
 	print("stop called")
 	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]

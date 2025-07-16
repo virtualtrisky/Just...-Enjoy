@@ -15,6 +15,7 @@ const DIRECTION_MAP: Dictionary = {
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var map_loader: Node2D
 var animation: String = "IDLE"
 var current_animation = "IDLE"
 
@@ -29,7 +30,7 @@ func update_animation() -> void:
 	#	animation_player.play("IDLE")
 
 func move(delta: float) -> void:
-	if Global.player_can_move == false:
+	if Global.player_can_move == false or not map_loader.finished:
 		velocity = Vector2.ZERO
 		return
 	

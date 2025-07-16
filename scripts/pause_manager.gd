@@ -25,5 +25,7 @@ func _on_continue_btn_pressed() -> void:
 
 
 func _on_quit_btn_pressed() -> void:
+	Global.stop_music()
+	await Global.wait_music_event()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menu_scene.tscn")
