@@ -12,3 +12,8 @@ func _ready() -> void:
 		await fade_screen.await_finish()
 		Global.map_changer_options.used = false
 		Global.player_can_move = true
+	
+	
+	# play music
+	if not Global.is_music_playing:
+		Global.play_music("res://musics/Sleep Music No. 1 - Chris Haugen.mp3")

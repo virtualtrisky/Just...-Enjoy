@@ -26,7 +26,10 @@ func update_tab():
 
 
 func _ready() -> void:
-	Global.play_music("res://musics/Long Walks - Emily A. Sprague.mp3")
+	await get_tree().create_timer(0.1).timeout
+	print(Global.is_music_playing)
+	if not Global.is_music_playing:
+		Global.play_music("res://musics/Long Walks - Emily A. Sprague.mp3")
 
 
 func _process(_delta: float) -> void:

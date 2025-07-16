@@ -2,6 +2,8 @@ extends Node
 
 var player_can_move: bool = true
 
+var is_music_playing: bool = false
+
 # used when map changes when a "map_changer" is used
 var map_changer_options: Dictionary = {
 	"position": Vector2(0, 0),
@@ -62,18 +64,22 @@ func read_config_file() -> bool:
 
 
 func stop_music() -> void:
+	print("stop called")
 	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
 	
 	audio_animation.play("stop_music")
 	await audio_animation.animation_finished
 	GlobalAudioStreamPlayer.stop()
+	is_music_playing = false
 
 
 func play_music(path: String) -> void:
+	print("play called")
 	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
 	var new_stream = load(path)
 	new_stream = new_stream.duplicate()
 	new_stream.loop = true
+	is_music_playing = true
 	
 	audio_animation.play("stop_music")
 	await audio_animation.animation_finished

@@ -43,11 +43,6 @@ func move(delta: float) -> void:
 	velocity = direction * MOVE_SPEED * delta
 
 
-
-func _ready() -> void:
-	Global.play_music("res://musics/Sleep Music No. 1 - Chris Haugen.mp3")
-
-
 func _process(_delta: float) -> void:
 	animation = "IDLE"
 	#for action in DIRECTION_MAP.keys():
