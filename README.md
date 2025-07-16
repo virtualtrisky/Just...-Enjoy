@@ -11,5 +11,6 @@ We hope tyou enjoy the experience.
 - Some map sprites added
 - Map warp created
 - Diary screen created
+- Door system created
 
 > Created by VirtualTrisky & N
