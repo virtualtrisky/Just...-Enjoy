@@ -14,7 +14,14 @@ const config_file_path: String = "user://config.json"
 var config: Dictionary = {
 	"config.app_version": "0.0.1-test",
 	"config.volume.master": 100,
-	"player.name": null
+	"player.name": null,
+	"saves": {
+		"page_0": { "is_valid": false },
+		"page_1": { "is_valid": false },
+		"page_2": { "is_valid": false },
+		"page_3": { "is_valid": false },
+		"page_4": { "is_valid": false }
+	}
 }
 
 
@@ -54,7 +61,7 @@ func read_config_file() -> bool:
 	return true
 
 
-func stop_music():
+func stop_music() -> void:
 	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
 	
 	audio_animation.play("stop_music")
@@ -62,7 +69,7 @@ func stop_music():
 	GlobalAudioStreamPlayer.stop()
 
 
-func play_music(path: String):
+func play_music(path: String) -> void:
 	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
 	var new_stream = load(path)
 	new_stream = new_stream.duplicate()
@@ -75,3 +82,11 @@ func play_music(path: String):
 	GlobalAudioStreamPlayer.stream = new_stream
 	GlobalAudioStreamPlayer.play()
 	audio_animation.play("play_music")
+
+
+func hide_cursor() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+
+func show_cursor() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

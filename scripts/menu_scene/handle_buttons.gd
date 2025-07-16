@@ -30,7 +30,11 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_continue_button_2_pressed() -> void:
-	print("Open Diary")
+	var fade_animation: AnimationPlayer =  $"../../../../FadeTexture/AnimationPlayer"
+	
+	fade_animation.play("fade_in")
+	await fade_animation.animation_finished
+	get_tree().change_scene_to_file("res://scenes/diary_scene.tscn")
 
 
 func _on_debug_button_pressed() -> void:

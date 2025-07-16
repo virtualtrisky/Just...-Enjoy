@@ -3,6 +3,7 @@ extends Control
 @onready var PauseScreen: Control = $PauseScreen
 
 func _ready() -> void:
+	Global.hide_cursor()
 	PauseScreen.visible = false
 
 func _process(_delta: float) -> void:
@@ -11,10 +12,14 @@ func _process(_delta: float) -> void:
 		PauseScreen.visible = get_tree().paused
 		
 		if get_tree().paused == true:
+			Global.show_cursor()
 			$PauseScreen/VBoxContainer/ContinueBtn.grab_focus()
+		else:
+			Global.hide_cursor()
 
 
 func _on_continue_btn_pressed() -> void:
+	Global.hide_cursor()
 	get_tree().paused = false
 	PauseScreen.visible = false
 

@@ -10,5 +10,6 @@ We hope tyou enjoy the experience.
 ### 0.0.1-test
 - Some map sprites added
 - Map warp created
+- Diary screen created
 
 > Created by VirtualTrisky & N
