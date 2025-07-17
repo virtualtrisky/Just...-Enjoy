@@ -3,6 +3,7 @@ extends Node
 var player_can_move: bool = true
 
 var is_music_playing: bool = false
+var music_name: String
 
 # used when map changes when a "map_changer" is used
 var map_changer_options: Dictionary = {
@@ -76,6 +77,7 @@ func stop_music() -> void:
 	await audio_animation.animation_finished
 	GlobalAudioStreamPlayer.stop()
 	is_music_playing = false
+	music_name = "None"
 
 
 func play_music(path: String) -> void:
@@ -85,6 +87,7 @@ func play_music(path: String) -> void:
 	new_stream = new_stream.duplicate()
 	new_stream.loop = true
 	is_music_playing = true
+	music_name = path
 	
 	audio_animation.play("stop_music")
 	await audio_animation.animation_finished

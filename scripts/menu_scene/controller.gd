@@ -27,8 +27,7 @@ func update_tab():
 
 func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
-	print(Global.is_music_playing)
-	if not Global.is_music_playing:
+	if not Global.is_music_playing and not Global.music_name == "res://musics/Long Walks - Emily A. Sprague.mp3":
 		Global.play_music("res://musics/Long Walks - Emily A. Sprague.mp3")
 
 

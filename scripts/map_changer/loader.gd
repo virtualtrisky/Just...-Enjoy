@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	# play music
 	print(Global.is_music_playing)
-	if not Global.is_music_playing:
+	if not Global.is_music_playing and not Global.music_name == "res://musics/Sleep Music No. 1 - Chris Haugen.mp3":
 		Global.play_music("res://musics/Sleep Music No. 1 - Chris Haugen.mp3")
 	
 	finished = true

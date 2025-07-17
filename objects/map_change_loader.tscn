@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://by05isafro6f" path="res://scripts/map_changer/loader.gd" id="1_7lki8"]
 
-[node name="MapChangeLoader" type="Node2D" node_paths=PackedStringArray("fade_screen", "player")]
+[node name="MapChangeLoader" type="Node2D"]
 process_priority = -1
 script = ExtResource("1_7lki8")
-fade_screen = NodePath("")
-player = NodePath("")
