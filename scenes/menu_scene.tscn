@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bgxj78yuvw4kw"]
+[gd_scene load_steps=26 format=3 uid="uid://bgxj78yuvw4kw"]
 
 [ext_resource type="Script" uid="uid://b21owjkcni6rr" path="res://scripts/menu_scene/controller.gd" id="1_1iahe"]
 [ext_resource type="StyleBox" uid="uid://bltc44r50jthm" path="res://resources/menu_tab_container/tab_focus_style.tres" id="1_u4hxd"]
@@ -22,6 +22,8 @@ font_size = 30
 font_size = 40
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iahe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my6g0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yfxa8"]
 font_size = 40
@@ -167,9 +169,10 @@ theme_override_styles/tab_selected = ExtResource("2_o71fo")
 theme_override_styles/tab_hovered = ExtResource("3_6wmco")
 theme_override_styles/tab_unselected = ExtResource("4_482oc")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Game" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("6_axson")
 metadata/_tab_index = 0
@@ -286,7 +289,6 @@ horizontal_alignment = 1
 script = ExtResource("10_my6g0")
 
 [node name="Options" type="TabBar" parent="Screen/MarginContainer/TabContainer" node_paths=PackedStringArray("MasterVolumeSlider")]
-visible = false
 layout_mode = 2
 script = ExtResource("8_520ac")
 MasterVolumeSlider = NodePath("MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider")
@@ -341,7 +343,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_1iahe")
 [node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Controls" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 text = "Controls"
@@ -349,151 +351,36 @@ label_settings = SubResource("LabelSettings_my6g0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_my6g0")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="MoveUp" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-clip_contents = true
+[node name="ArrowKeys" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 50
-columns = 2
-
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveUp"]
-texture_filter = 1
-custom_minimum_size = Vector2(97, 0)
-layout_mode = 2
-text = "Move Up"
+text = "(arrow keys) to move"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveUp"]
-custom_minimum_size = Vector2(130, 0)
+[node name="X" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
-text = "ARROW UP"
-flat = true
-
-[node name="MoveLeft" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_constants/h_separation = 50
-columns = 2
-
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveLeft"]
-custom_minimum_size = Vector2(97, 0)
-layout_mode = 2
-text = "Move Left"
+text = "(x) to execute action"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveLeft"]
-custom_minimum_size = Vector2(130, 0)
+[node name="Tab" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
-text = "ARROW LEFT"
-flat = true
-
-[node name="MoveDown" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_constants/h_separation = 50
-columns = 2
-
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveDown"]
-custom_minimum_size = Vector2(97, 0)
-layout_mode = 2
-text = "Move Down"
+text = "(tab) to open inventory"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveDown"]
-custom_minimum_size = Vector2(130, 0)
+[node name="Esc" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
-text = "ARROW DOWN"
-flat = true
-
-[node name="MoveRight" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_constants/h_separation = 50
-columns = 2
-
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight"]
-custom_minimum_size = Vector2(97, 0)
-layout_mode = 2
-text = "Move Right"
+text = "(Esc) to pause"
 horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/MoveRight"]
-custom_minimum_size = Vector2(130, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-text = "ARROW RIGHT"
-flat = true
-
-[node name="Action" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_constants/h_separation = 50
-columns = 2
-
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Action"]
-custom_minimum_size = Vector2(97, 0)
-layout_mode = 2
-text = "Action"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Action"]
-custom_minimum_size = Vector2(130, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-text = "X"
-flat = true
-
-[node name="Pause" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_constants/h_separation = 50
-columns = 2
-
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Pause"]
-custom_minimum_size = Vector2(97, 0)
-layout_mode = 2
-text = "pause"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Pause"]
-custom_minimum_size = Vector2(130, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-text = "escape"
-flat = true
-
-[node name="Menu" type="GridContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_constants/h_separation = 50
-columns = 2
-
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Menu"]
-custom_minimum_size = Vector2(97, 0)
-layout_mode = 2
-text = "menu"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/Menu"]
-custom_minimum_size = Vector2(130, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-text = "tab"
-flat = true
 
 [node name="About" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
 visible = false

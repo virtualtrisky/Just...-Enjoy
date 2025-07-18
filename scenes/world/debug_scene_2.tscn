@@ -28,7 +28,7 @@ position = Vector2(8, -248)
 player = NodePath("../../Player")
 fade_screen = NodePath("../../CanvasLayer/FadeScreen")
 map_path = "res://scenes/world/debug_scene.tscn"
-to_position = Vector2(-56, -32)
+to_position = Vector2(-56, -24)
 
 [node name="Player" parent="." node_paths=PackedStringArray("map_loader") instance=ExtResource("2_xrclu")]
 position = Vector2(8, -224)

@@ -58,7 +58,7 @@ fade_screen = NodePath("../../../CanvasLayer/FadeScreen")
 player = NodePath("../../../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("map_loader") instance=ExtResource("1_0h5k3")]
-position = Vector2(-16, -80)
+position = Vector2(-16, -72)
 map_loader = NodePath("../MapChangeLoader")
 camera_limit = {
 "bottom": -8,
@@ -78,5 +78,3 @@ process_physics_priority = -1
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0, 0, 0, 1)
-
-[editable path="Player"]
