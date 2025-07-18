@@ -12,5 +12,6 @@ We hope tyou enjoy the experience.
 - Map warp created
 - Diary screen created
 - Door system created
+- Inventory created
 
 > Created by VirtualTrisky & N

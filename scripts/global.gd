@@ -27,7 +27,6 @@ var config: Dictionary = {
 	}
 }
 
-
 func write_config_file() -> bool:
 	var file: FileAccess
 	

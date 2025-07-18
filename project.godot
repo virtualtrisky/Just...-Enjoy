@@ -23,12 +23,16 @@ config/icon="uid://doakp2318u0xn"
 
 Global="*res://scripts/global.gd"
 GlobalAudioStreamPlayer="*res://objects/audio_stream_player.tscn"
+Inventory="*res://scripts/inventory.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=3
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://c1ln1v0qmaqnx"
 
 [gui]
