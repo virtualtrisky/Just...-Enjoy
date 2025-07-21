@@ -26,9 +26,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_koxkd")
 
 [node name="PauseScreen" type="Control" parent="."]
+process_mode = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,7 +62,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="PauseScreen/VBoxContainer"]
 layout_mode = 2
-text = "Paused"
+text = "[LABEL_PAUSE_MENU_TITLE]"
 label_settings = SubResource("LabelSettings_g4ivv")
 horizontal_alignment = 1
 
@@ -71,19 +73,19 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_8x80a")
 
 [node name="ContinueBtn" type="Button" parent="PauseScreen/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/focus = ExtResource("2_8x80a")
+theme_override_styles/focus = ExtResource("1_aktha")
 theme_override_styles/hover = ExtResource("2_8x80a")
 theme_override_styles/pressed = ExtResource("1_aktha")
 theme_override_styles/normal = ExtResource("2_8x80a")
-text = "Continue"
+text = "[BTN_PAUSE_MENU_CONTINUE]"
 
 [node name="QuitBtn" type="Button" parent="PauseScreen/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/focus = ExtResource("2_8x80a")
+theme_override_styles/focus = ExtResource("1_aktha")
 theme_override_styles/hover = ExtResource("2_8x80a")
 theme_override_styles/pressed = ExtResource("1_aktha")
 theme_override_styles/normal = ExtResource("2_8x80a")
-text = "Exit to Menu"
+text = "[BTN_PAUSE_MENU_EXIT_TO_MENU]"
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

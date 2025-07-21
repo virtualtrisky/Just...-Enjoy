@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c42ft0ylakiny"]
+
+[ext_resource type="Script" uid="uid://cv8vmaib6dcbq" path="res://scripts/map_changer/controller.gd" id="1_8vyld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahmbf"]
+size = Vector2(16, 16)
+
+[node name="MapChanger" type="Area2D"]
+script = ExtResource("1_8vyld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ahmbf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

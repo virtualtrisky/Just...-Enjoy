@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=4 uid="uid://ctv22y7kglvm3"]
+
+[ext_resource type="PackedScene" uid="uid://b2q8gy1usaik4" path="res://objects/map_change_loader.tscn" id="1_6vt7i"]
+[ext_resource type="TileSet" uid="uid://bty12rgpv1ly6" path="res://tilesets/test_tileset.tres" id="2_5ximw"]
+[ext_resource type="PackedScene" uid="uid://0hr751kftiy5" path="res://objects/door_trigger.tscn" id="3_hr6y5"]
+[ext_resource type="PackedScene" uid="uid://jq8av47j3b6o" path="res://objects/player.tscn" id="3_wva83"]
+[ext_resource type="PackedScene" uid="uid://duqvcuywls6o0" path="res://objects/fade_screen.tscn" id="4_262n5"]
+[ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="5_pwj7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr6y5"]
+size = Vector2(16, 16)
+
+[node name="DebugScene3" type="Node2D"]
+
+[node name="MapChangeLoader" parent="." node_paths=PackedStringArray("fade_screen", "player") instance=ExtResource("1_6vt7i")]
+fade_screen = NodePath("../CanvasLayer/FadeScreen")
+player = NodePath("../Player")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Floor" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray("AAD8////AAAAAAAAAAD8/wAAAAAAAAIAAAD8/wEAAAAAAAEAAAD8/wIAAAAAAAIAAAD9////AAAAAAIAAAD9/wAAAAAAAAIAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAIAAAD+////AAAAAAIAAAD+/wAAAAAAAAIAAAD+/wEAAAAAAAIAAAD+/wIAAAAAAAIAAAD/////AAAAAAMAAAD//wAAAAAAAAIAAAD//wEAAAAAAAMAAAD//wIAAAAAAAIAAAAAAP//AAAAAAIAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAMAAAABAP//AAAAAAIAAAABAAAAAAAAAAIAAAABAAEAAAAAAAIAAAABAAIAAAAAAAIAAAACAP//AAAAAAIAAAACAAAAAAAAAAIAAAACAAEAAAAAAAIAAAACAAIAAAAAAAIAAAD4//n/AAAAAAIAAAD4//r/AAAAAAAAAAD4//v/AAAAAAMAAAD4//z/AAAAAAIAAAD4//3/AAAAAAMAAAD4//7/AAAAAAIAAAD4////AAAAAAIAAAD4/wAAAAAAAAIAAAD4/wEAAAAAAAIAAAD4/wIAAAAAAAIAAAD5//r/AAAAAAIAAAD5//v/AAAAAAIAAAD5//z/AAAAAAIAAAD5//3/AAAAAAIAAAD5//7/AAAAAAIAAAD5////AAAAAAIAAAD5/wAAAAAAAAIAAAD5/wEAAAAAAAIAAAD5/wIAAAAAAAIAAAD6//n/AAAAAAIAAAD6//r/AAAAAAIAAAD6//v/AAAAAAIAAAD6//z/AAAAAAIAAAD6//3/AAAAAAIAAAD6//7/AAAAAAIAAAD6////AAAAAAIAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAIAAAD6/wIAAAAAAAMAAAD7//n/AAAAAAIAAAD7//r/AAAAAAIAAAD7//v/AAAAAAIAAAD7//z/AAAAAAMAAAD7//3/AAAAAAIAAAD7//7/AAAAAAIAAAD7////AAAAAAIAAAD7/wAAAAAAAAIAAAD7/wEAAAAAAAIAAAD7/wIAAAAAAAIAAAD4//T/AAAAAAIAAAD4//X/AAAAAAIAAAD4//b/AAAAAAIAAAD4//f/AAAAAAIAAAD4//j/AAAAAAIAAAD6//T/AAAAAAIAAAD6//X/AAAAAAIAAAD6//b/AAAAAAIAAAD6//f/AAAAAAIAAAD6//j/AAAAAAMAAAD7//T/AAAAAAIAAAD7//X/AAAAAAIAAAD7//b/AAAAAAIAAAD7//f/AAAAAAIAAAD7//j/AAAAAAMAAAD5//T/AAAAAAIAAAD5//X/AAAAAAIAAAD5//b/AAAAAAIAAAD5//f/AAAAAAIAAAD5//j/AAAAAAIAAAD5//n/AAAAAAIAAAA=")
+tile_set = ExtResource("2_5ximw")
+
+[node name="Wall" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray("AAD4/wMAAAACAAAAAAD5/wMAAAACAAAAAAD6/wMAAAACAAAAAAD7/wMAAAACAAAAAAD8/wMAAAACAAAAAAD9/wMAAAACAAAAAAD+/wMAAAACAAAAAAD//wMAAAACAAAAAAADAP//AAADAAAAAAADAAAAAAADAAAAAAADAAEAAAADAAAAAAADAAIAAAADAAAAAAADAAMAAAAHAAEAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAD8//7/AAACAAIAAAD9//7/AAACAAIAAAD+//7/AAACAAIAAAD///7/AAACAAIAAAAAAP7/AAACAAIAAAABAP7/AAACAAIAAAACAP7/AAACAAIAAAADAP7/AAADAAAAAAD9//3/AAABAAEAAAD+//3/AAABAAEAAAD///3/AAABAAEAAAAAAP3/AAABAAEAAAABAP3/AAABAAEAAAACAP3/AAABAAEAAAD8//3/AAAFAAAAAAADAP3/AAAHAAAAAAD8//n/AAADAAAAAAD8//r/AAADAAAAAAD8//v/AAADAAAAAAD8//z/AAADAAAAAAD3//z/AAABAAAAAAD3//3/AAABAAAAAAD3//7/AAABAAAAAAD3////AAABAAAAAAD3/wAAAAABAAAAAAD3/wEAAAABAAAAAAD3/wIAAAABAAAAAAD3//n/AAABAAAAAAD3//r/AAABAAAAAAD3//v/AAABAAAAAAD3//T/AAABAAAAAAD3//X/AAABAAAAAAD3//b/AAABAAAAAAD3//f/AAABAAAAAAD3//j/AAABAAAAAAD4//P/AAACAAIAAAD5//P/AAACAAIAAAD6//P/AAACAAIAAAD7//P/AAACAAIAAAD3//P/AAABAAAAAAD4//L/AAABAAEAAAD5//L/AAABAAEAAAD6//L/AAABAAEAAAD7//L/AAABAAEAAAD8//P/AAADAAAAAAD8//T/AAADAAAAAAD8//X/AAADAAAAAAD8//b/AAADAAAAAAD8//f/AAADAAAAAAD8//j/AAADAAAAAAD3//L/AAAGAAAAAAD8//L/AAAHAAAAAAD3/wMAAAAGAAEAAAA=")
+tile_set = ExtResource("2_5ximw")
+
+[node name="DoorTriggers" type="Node2D" parent="Map"]
+
+[node name="Limit" type="StaticBody2D" parent="Map/DoorTriggers"]
+position = Vector2(8, 56)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/DoorTriggers/Limit"]
+shape = SubResource("RectangleShape2D_hr6y5")
+
+[node name="DoorTrigger" parent="Map/DoorTriggers" node_paths=PackedStringArray("fade_screen", "player") instance=ExtResource("3_hr6y5")]
+position = Vector2(8, 48)
+to_scene = "res://scenes/world/debug_scene.tscn"
+to_position = Vector2(-8, -120)
+fade_screen = NodePath("../../../CanvasLayer/FadeScreen")
+player = NodePath("../../../Player")
+
+[node name="Player" parent="." node_paths=PackedStringArray("map_loader") instance=ExtResource("3_wva83")]
+position = Vector2(8, 32)
+map_loader = NodePath("../MapChangeLoader")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("4_262n5")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_pwj7g")]

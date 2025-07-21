@@ -1,19 +1,80 @@
-[gd_scene load_steps=4 format=3 uid="uid://wbi84fu0pmdd"]
+[gd_scene load_steps=10 format=4 uid="uid://wbi84fu0pmdd"]
 
 [ext_resource type="PackedScene" uid="uid://jq8av47j3b6o" path="res://objects/player.tscn" id="1_0h5k3"]
-[ext_resource type="Texture2D" uid="uid://bcxr8txqrys4t" path="res://Cat.png" id="2_16mi4"]
+[ext_resource type="PackedScene" uid="uid://b2q8gy1usaik4" path="res://objects/map_change_loader.tscn" id="1_jt2pn"]
 [ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="2_ucyy2"]
+[ext_resource type="TileSet" uid="uid://bty12rgpv1ly6" path="res://tilesets/test_tileset.tres" id="3_afxy4"]
+[ext_resource type="PackedScene" uid="uid://c42ft0ylakiny" path="res://objects/map_changer.tscn" id="3_fr3mx"]
+[ext_resource type="PackedScene" uid="uid://0hr751kftiy5" path="res://objects/door_trigger.tscn" id="5_4aj0i"]
+[ext_resource type="PackedScene" uid="uid://duqvcuywls6o0" path="res://objects/fade_screen.tscn" id="6_r2fgq"]
+
+[sub_resource type="Gradient" id="Gradient_jt2pn"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4aj0i"]
+gradient = SubResource("Gradient_jt2pn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="DebugScene" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-98, 4)
-texture = ExtResource("2_16mi4")
+[node name="MapChangeLoader" parent="." node_paths=PackedStringArray("fade_screen", "player") instance=ExtResource("1_jt2pn")]
+fade_screen = NodePath("../CanvasLayer/FadeScreen")
+player = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("1_0h5k3")]
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Floor" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray("AAD6//n/AAAAAAIAAAD6//r/AAAAAAIAAAD6//v/AAAAAAIAAAD6//z/AAAAAAMAAAD6//3/AAAAAAIAAAD6//7/AAAAAAIAAAD7//n/AAAAAAMAAAD7//r/AAAAAAIAAAD7//v/AAAAAAEAAAD7//z/AAAAAAIAAAD7//3/AAAAAAIAAAD7//7/AAAAAAIAAAD8//n/AAAAAAIAAAD8//r/AAAAAAIAAAD8//v/AAAAAAIAAAD8//z/AAAAAAEAAAD8//3/AAAAAAIAAAD8//7/AAAAAAIAAAD9//n/AAAAAAIAAAD9//r/AAAAAAAAAAD9//v/AAAAAAMAAAD9//z/AAAAAAIAAAD9//3/AAAAAAIAAAD9//7/AAAAAAEAAAD+//n/AAAAAAIAAAD+//r/AAAAAAIAAAD+//v/AAAAAAIAAAD+//z/AAAAAAIAAAD+//3/AAAAAAIAAAD+//7/AAAAAAAAAAD///n/AAAAAAMAAAD///r/AAAAAAAAAAD///v/AAAAAAIAAAD///z/AAAAAAIAAAD///3/AAAAAAIAAAD///7/AAAAAAAAAAAAAPn/AAAAAAEAAAAAAPr/AAAAAAIAAAAAAPv/AAAAAAIAAAAAAPz/AAAAAAIAAAAAAP3/AAAAAAIAAAAAAP7/AAAAAAIAAAABAPn/AAAAAAIAAAABAPr/AAAAAAIAAAABAPv/AAAAAAMAAAABAPz/AAAAAAAAAAABAP3/AAAAAAIAAAABAP7/AAAAAAEAAAACAPn/AAAAAAIAAAACAPr/AAAAAAIAAAACAPv/AAAAAAIAAAACAPz/AAAAAAEAAAACAP3/AAAAAAIAAAACAP7/AAAAAAIAAAADAPn/AAAAAAIAAAADAPr/AAAAAAIAAAADAPv/AAAAAAIAAAADAPz/AAAAAAMAAAADAP3/AAAAAAEAAAADAP7/AAAAAAAAAAD6//j/AAAAAAIAAAD7//j/AAAAAAIAAAD8//j/AAAAAAEAAAD9//j/AAAAAAIAAAD+//j/AAAAAAIAAAD///j/AAAAAAIAAAAAAPj/AAAAAAIAAAABAPj/AAAAAAIAAAACAPj/AAAAAAIAAAADAPj/AAAAAAIAAAD8////AAAAAAMAAAA=")
+tile_set = ExtResource("3_afxy4")
+
+[node name="Walls" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray("AAD5//n/AAABAAAAAAD5//r/AAABAAAAAAD5//v/AAABAAAAAAD5//j/AAABAAAAAAD6//f/AAACAAIAAAD7//f/AAACAAIAAAD8//f/AAACAAIAAAD9//f/AAACAAIAAAD+//f/AAACAAIAAAD///f/AAABAAIAAAAAAPf/AAACAAIAAAABAPf/AAACAAIAAAACAPf/AAACAAIAAAADAPf/AAACAAIAAAD6//b/AAABAAEAAAD7//b/AAABAAEAAAD8//b/AAABAAEAAAD9//b/AAABAAEAAAD+//b/AAABAAEAAAD///b/AAABAAEAAAAAAPb/AAABAAEAAAABAPb/AAABAAEAAAACAPb/AAABAAEAAAADAPb/AAABAAEAAAD5//f/AAABAAAAAAAEAPf/AAADAAAAAAAEAPj/AAADAAAAAAAEAPn/AAADAAAAAAAEAPr/AAADAAAAAAAEAPv/AAADAAAAAAAEAPz/AAADAAAAAAAEAP3/AAADAAAAAAAEAP7/AAADAAAAAAD5//z/AAABAAAAAAD5//3/AAABAAAAAAD5//7/AAABAAAAAAD6////AAACAAAAAAD7////AAAEAAEAAAD9////AAAFAAEAAAD/////AAACAAAAAAAAAP//AAACAAAAAAABAP//AAACAAAAAAACAP//AAACAAAAAAADAP//AAACAAAAAAD+////AAACAAAAAAD5//b/AAAGAAAAAAAEAPb/AAAHAAAAAAAEAP//AAAHAAEAAAD5////AAAGAAEAAAA=")
+tile_set = ExtResource("3_afxy4")
+
+[node name="MapChanger" parent="Map" node_paths=PackedStringArray("player", "fade_screen") instance=ExtResource("3_fr3mx")]
+position = Vector2(-56, 0)
+player = NodePath("../../Player")
+fade_screen = NodePath("../../CanvasLayer/FadeScreen")
+map_path = "res://scenes/world/debug_scene_2.tscn"
+to_position = Vector2(8, -224)
+
+[node name="Lights" type="Node2D" parent="Map"]
+visible = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Lights"]
+position = Vector2(-40, -88)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_4aj0i")
+texture_scale = 3.22
+
+[node name="DoorTriggers" type="Node2D" parent="Map"]
+
+[node name="DoorTrigger" parent="Map/DoorTriggers" node_paths=PackedStringArray("fade_screen", "player") instance=ExtResource("5_4aj0i")]
+position = Vector2(-8, -136)
+to_scene = "res://scenes/world/debug_scene_3.tscn"
+to_position = Vector2(8, 32)
+fade_screen = NodePath("../../../CanvasLayer/FadeScreen")
+player = NodePath("../../../Player")
+
+[node name="Player" parent="." node_paths=PackedStringArray("map_loader") instance=ExtResource("1_0h5k3")]
+position = Vector2(-16, -72)
+map_loader = NodePath("../MapChangeLoader")
+camera_limit = {
+"bottom": -8,
+"left": -144,
+"right": 112,
+"top": -152,
+"use_limit": true
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_ucyy2")]
 
-[editable path="CanvasLayer/PauseMenu"]
+[node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("6_r2fgq")]
+process_physics_priority = -1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)

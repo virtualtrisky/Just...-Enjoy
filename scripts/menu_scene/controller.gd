@@ -1,5 +1,40 @@
 extends Node
 
+var active_tab_index = 0
+@onready var tabs: Array[TabBar] = [
+	$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]",
+	$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]",
+	$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]"
+]
+
+
+func update_focus():
+	if active_tab_index == 0:
+		$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton".grab_focus()
+	elif active_tab_index == 1:
+		$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider".grab_focus()
+
+
+func update_tab():
+	if active_tab_index < 0: active_tab_index = 2
+	elif active_tab_index > 2: active_tab_index = 0
+	
+	for i in range(tabs.size()):
+		tabs[i].visible = false if active_tab_index != i else true
+	
+	update_focus()
+
 
 func _ready() -> void:
-	Global.play_music("res://musics/Long Walks - Emily A. Sprague.mp3")
+	await get_tree().create_timer(0.1).timeout
+	if not Global.is_music_playing and not Global.music_name == "res://musics/Long Walks - Emily A. Sprague.mp3":
+		Global.play_music("res://musics/Long Walks - Emily A. Sprague.mp3")
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("controller_LT"):
+		active_tab_index -= 1
+		update_tab()
+	elif Input.is_action_just_pressed("controller_RT"):
+		active_tab_index += 1
+		update_tab()
