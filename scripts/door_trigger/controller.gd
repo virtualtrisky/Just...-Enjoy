@@ -25,11 +25,9 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player": return
-	print("player entered")
 	player_nearby = true
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.name != "Player": return
-	print("player exited")
 	player_nearby = false

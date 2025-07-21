@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bgxj78yuvw4kw"]
+[gd_scene load_steps=30 format=3 uid="uid://bgxj78yuvw4kw"]
 
 [ext_resource type="Script" uid="uid://b21owjkcni6rr" path="res://scripts/menu_scene/controller.gd" id="1_1iahe"]
 [ext_resource type="StyleBox" uid="uid://bltc44r50jthm" path="res://resources/menu_tab_container/tab_focus_style.tres" id="1_u4hxd"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bo2ola1m1g5wt" path="res://scripts/menu_scene/update_settings.gd" id="8_520ac"]
 [ext_resource type="Script" uid="uid://csbpntdby6wfx" path="res://scripts/menu_scene/load_about.gd" id="8_vjll7"]
 [ext_resource type="Script" uid="uid://2lr3y3d8lt1m" path="res://scripts/menu_scene/hello_message.gd" id="10_my6g0"]
+[ext_resource type="Script" uid="uid://chf2a3nc1rn7o" path="res://scripts/menu_scene/language_option_controller.gd" id="12_b6imc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u4hxd"]
 font_size = 30
@@ -24,6 +25,31 @@ font_size = 40
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iahe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my6g0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cycrn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6imc"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my6g0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yfxa8"]
 font_size = 40
@@ -383,6 +409,40 @@ layout_mode = 2
 text = "[LABEL_OPTIONS_MENU_ESC_KEY]"
 horizontal_alignment = 1
 
+[node name="HSeparator2" type="HSeparator" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1iahe")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Langs" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+text = "[LABEL_OPTIONS_MENU_LANGS_TITLE]"
+label_settings = SubResource("LabelSettings_my6g0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_my6g0")
+
+[node name="OptionButton" type="OptionButton" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_cycrn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b6imc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_my6g0")
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Portugues (Brasil)"
+popup/item_1/id = 1
+script = ExtResource("12_b6imc")
+
 [node name="[MAIN_TAB_MENU_ABOUT]" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
@@ -465,3 +525,4 @@ autoplay = "fade_out"
 [connection signal="pressed" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer/ContinueButton" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]" method="_on_continue_button_2_pressed"]
 [connection signal="pressed" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer/ExitButton" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]" method="_on_exit_button_pressed"]
 [connection signal="value_changed" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]" method="_on_h_slider_value_changed"]
+[connection signal="item_selected" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer2/OptionButton" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer2/OptionButton" method="_on_item_selected"]

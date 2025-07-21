@@ -10,7 +10,6 @@ func update_item_list() -> void:
 	var containers: Array[Node] = inventory_grid.get_children()
 	
 	for i in range(containers.size()):
-		print(Inventory.items[i].sprite_path)
 		var texture_rect: TextureRect = containers[i].get_child(1)
 		
 		if not Inventory.items[i].sprite_path == "NO_SPRITE":
@@ -25,7 +24,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		Inventory.add_item(Inventory.item_list["some_item"])
-		print(Inventory.items[2].item_name)
 	
 	if Input.is_action_just_pressed("key_menu"):
 		inventory_camp.visible = not inventory_camp.visible

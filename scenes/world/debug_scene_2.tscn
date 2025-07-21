@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://tfjaw3gaf78a"]
+[gd_scene load_steps=6 format=4 uid="uid://tfjaw3gaf78a"]
 
 [ext_resource type="PackedScene" uid="uid://b2q8gy1usaik4" path="res://objects/map_change_loader.tscn" id="1_ohkgl"]
 [ext_resource type="TileSet" uid="uid://bty12rgpv1ly6" path="res://tilesets/test_tileset.tres" id="2_egf4r"]
 [ext_resource type="PackedScene" uid="uid://jq8av47j3b6o" path="res://objects/player.tscn" id="2_xrclu"]
 [ext_resource type="PackedScene" uid="uid://c42ft0ylakiny" path="res://objects/map_changer.tscn" id="3_3b7h3"]
-[ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="3_ohkgl"]
 [ext_resource type="PackedScene" uid="uid://duqvcuywls6o0" path="res://objects/fade_screen.tscn" id="4_egf4r"]
 
 [node name="DebugScene2" type="Node2D"]
@@ -35,7 +34,5 @@ position = Vector2(8, -224)
 map_loader = NodePath("../MapChangeLoader")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_ohkgl")]
 
 [node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("4_egf4r")]

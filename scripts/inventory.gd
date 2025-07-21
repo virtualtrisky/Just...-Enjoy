@@ -23,7 +23,6 @@ func create_item(_item: Dictionary) -> Item:
 
 func add_item(_item: Dictionary) -> void:
 	if item_count >= 13:
-		print("not enough space")
 		return
 	
 	var item := create_item(_item)
@@ -45,5 +44,4 @@ func remove(item_name: String) -> void:
 
 func _ready() -> void:
 	for i in range(14):
-		print(i)
 		items.push_back(create_item(item_list["no_item"]))

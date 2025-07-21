@@ -6,6 +6,16 @@ func load_resources() -> bool:
 	else: return Global.read_config_file()
 
 
+func update_language() -> void:
+	if Global.config["config.lang"] == null:
+		if Global.SUPPORTED_LANGS.find(OS.get_locale()):
+			Global.set_locale(OS.get_locale())
+		else:
+			Global.set_locale("en")
+	else:
+		Global.set_locale(Global.config["config.lang"])
+
+
 func _ready() -> void:
 	if not load_resources():
 		print("Failed to load resources.")
@@ -13,6 +23,7 @@ func _ready() -> void:
 		return
 		
 	$MarginContainer/Label.text = "Resources loaded."
+	update_language()
 	await get_tree().create_timer(2).timeout
 	
 	if Global.config["player.name"] == null:

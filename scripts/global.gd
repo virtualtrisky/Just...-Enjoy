@@ -1,5 +1,8 @@
 extends Node
 
+const SUPPORTED_LANGS: Array[String] = [ "en", "pt_BR" ]
+
+
 var player_can_move: bool = true
 
 var is_music_playing: bool = false
@@ -15,7 +18,8 @@ var map_changer_options: Dictionary = {
 
 const config_file_path: String = "user://config.json"
 var config: Dictionary = {
-	"config.app_version": "0.0.1-test",
+	"config.lang": null,
+	"config.app_version": "0.1.0",
 	"config.volume.master": 100,
 	"player.name": null,
 	"saves": {
@@ -26,6 +30,7 @@ var config: Dictionary = {
 		"page_4": { "is_valid": false }
 	}
 }
+
 
 func write_config_file() -> bool:
 	var file: FileAccess
@@ -69,7 +74,6 @@ func wait_music_event() -> Signal:
 	return audio_animation.animation_finished
 
 func stop_music() -> void:
-	print("stop called")
 	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
 	
 	audio_animation.play("stop_music")
@@ -80,7 +84,6 @@ func stop_music() -> void:
 
 
 func play_music(path: String) -> void:
-	print("play called")
 	var audio_animation: AnimationPlayer  = GlobalAudioStreamPlayer.get_children()[0]
 	var new_stream = load(path)
 	new_stream = new_stream.duplicate()
@@ -103,3 +106,13 @@ func hide_cursor() -> void:
 
 func show_cursor() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func set_locale(lang: String) -> void:
+	if not SUPPORTED_LANGS.find(lang) >= 0:
+		print("Language '{0}' not supported".format([lang]))
+		return
+	
+	config["config.lang"] = lang
+	TranslationServer.set_locale(lang)
+	write_config_file()

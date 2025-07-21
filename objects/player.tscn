@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://jq8av47j3b6o"]
+[gd_scene load_steps=13 format=3 uid="uid://jq8av47j3b6o"]
 
 [ext_resource type="Script" uid="uid://o2sh14iuvm00" path="res://scripts/player/controller.gd" id="1_ykyjo"]
 [ext_resource type="Texture2D" uid="uid://b0d55bb4m6wga" path="res://sprites/player/character.png" id="2_ykyjo"]
+[ext_resource type="Script" uid="uid://cibrnnbthbk2n" path="res://scripts/player/camera_controller.gd" id="3_nmc1l"]
 [ext_resource type="PackedScene" uid="uid://dqg1pcstgr63r" path="res://objects/inventory.tscn" id="3_uxov2"]
+[ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="5_f46kd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykyjo"]
 radius = 5.0
@@ -108,9 +110,10 @@ _data = {
 &"WALK_UP": SubResource("Animation_f46kd")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera")]
 collision_mask = 2
 script = ExtResource("1_ykyjo")
+camera = NodePath("Camera2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
@@ -126,6 +129,7 @@ shape = SubResource("CapsuleShape2D_ykyjo")
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 editor_draw_limits = true
+script = ExtResource("3_nmc1l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -135,3 +139,5 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("3_uxov2")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_f46kd")]

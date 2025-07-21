@@ -16,6 +16,7 @@ key,en,pt_br
 [LABEL_OPTIONS_MENU_X_KEY],(x) to execute action,(x) para executar acao
 [LABEL_OPTIONS_MENU_TAB_KEY],(tab) to open inventory,(tab) para abrir inventario
 [LABEL_OPTIONS_MENU_ESC_KEY],(esc) to pause,(esc) para pausar
+[LABEL_OPTIONS_MENU_LANGS_TITLE],Language Options, Opcoes de Idioma
 ,,
 [LABEL_ABOUT_MENU_GAME_VERSION],Version {0},Versao {0}
 [LABEL_ABOUT_MENU_MUSICS_BY],musics by,musicas por

@@ -4,8 +4,8 @@
 [ext_resource type="TileSet" uid="uid://bty12rgpv1ly6" path="res://tilesets/test_tileset.tres" id="2_5ximw"]
 [ext_resource type="PackedScene" uid="uid://0hr751kftiy5" path="res://objects/door_trigger.tscn" id="3_hr6y5"]
 [ext_resource type="PackedScene" uid="uid://jq8av47j3b6o" path="res://objects/player.tscn" id="3_wva83"]
+[ext_resource type="PackedScene" uid="uid://8vwbophpwe3s" path="res://objects/set_camera_limit.tscn" id="4_55lg5"]
 [ext_resource type="PackedScene" uid="uid://duqvcuywls6o0" path="res://objects/fade_screen.tscn" id="4_262n5"]
-[ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="5_pwj7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr6y5"]
 size = Vector2(16, 16)
@@ -42,6 +42,12 @@ to_position = Vector2(-8, -120)
 fade_screen = NodePath("../../../CanvasLayer/FadeScreen")
 player = NodePath("../../../Player")
 
+[node name="CameraLimiter" type="Node2D" parent="Map"]
+
+[node name="SetCameraLimit" parent="Map/CameraLimiter" instance=ExtResource("4_55lg5")]
+position = Vector2(-40, 16)
+scale = Vector2(11, 4)
+
 [node name="Player" parent="." node_paths=PackedStringArray("map_loader") instance=ExtResource("3_wva83")]
 position = Vector2(8, 32)
 map_loader = NodePath("../MapChangeLoader")
@@ -49,5 +55,3 @@ map_loader = NodePath("../MapChangeLoader")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("4_262n5")]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_pwj7g")]

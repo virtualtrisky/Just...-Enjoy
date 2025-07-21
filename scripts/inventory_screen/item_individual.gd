@@ -4,7 +4,6 @@ extends Control
 
 
 func _on_focus_entered(index: int) -> void:
-	print("index: {0}")
 	description_label.text = Inventory.items[index].description
 
 

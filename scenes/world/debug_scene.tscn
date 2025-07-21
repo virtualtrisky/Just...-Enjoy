@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://wbi84fu0pmdd"]
+[gd_scene load_steps=9 format=4 uid="uid://wbi84fu0pmdd"]
 
 [ext_resource type="PackedScene" uid="uid://jq8av47j3b6o" path="res://objects/player.tscn" id="1_0h5k3"]
 [ext_resource type="PackedScene" uid="uid://b2q8gy1usaik4" path="res://objects/map_change_loader.tscn" id="1_jt2pn"]
-[ext_resource type="PackedScene" uid="uid://bji1trcj62fwf" path="res://objects/pause_menu.tscn" id="2_ucyy2"]
 [ext_resource type="TileSet" uid="uid://bty12rgpv1ly6" path="res://tilesets/test_tileset.tres" id="3_afxy4"]
 [ext_resource type="PackedScene" uid="uid://c42ft0ylakiny" path="res://objects/map_changer.tscn" id="3_fr3mx"]
 [ext_resource type="PackedScene" uid="uid://0hr751kftiy5" path="res://objects/door_trigger.tscn" id="5_4aj0i"]
@@ -69,8 +68,6 @@ camera_limit = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_ucyy2")]
 
 [node name="FadeScreen" parent="CanvasLayer" instance=ExtResource("6_r2fgq")]
 process_physics_priority = -1

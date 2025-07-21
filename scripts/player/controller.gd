@@ -19,6 +19,7 @@ const DIRECTION_MAP: Dictionary = {
 var animation: String = "IDLE"
 var current_animation = "IDLE"
 
+@export var camera: Camera2D
 @export var camera_limit: Dictionary = {
 	"use_limit": false,
 	"left":  -1, "top":  -1,
@@ -51,12 +52,12 @@ func move(delta: float) -> void:
 func set_camera_limit() -> void:
 	if not camera_limit.use_limit: return
 	
-	var camera: Camera2D = $Camera2D
-	
-	camera.limit_left   = camera_limit.left
-	camera.limit_top    = camera_limit.top
-	camera.limit_right  = camera_limit.right
-	camera.limit_bottom = camera_limit.bottom
+	camera.update_limit(
+		camera_limit.top,
+		camera_limit.left,
+		camera_limit.right,
+		camera_limit.bottom
+	)
 
 
 func _ready() -> void:

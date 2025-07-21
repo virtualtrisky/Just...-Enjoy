@@ -14,7 +14,7 @@ func _on_play_button_pressed() -> void:
 	Global.stop_music()
 	await fade_animation.animation_finished
 	await Global.wait_music_event()
-	get_tree().change_scene_to_file("res://scenes/world/bedroom.tscn")
+	get_tree().change_scene_to_file("res://scenes/house/bedroom.tscn")
 
 
 func _on_exit_button_pressed() -> void:
