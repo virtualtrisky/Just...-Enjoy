@@ -1,0 +1,33 @@
+key,en,pt_br
+[MAIN_TAB_MENU_GAME],Game,Jogo
+[MAIN_TAB_MENU_OPTIONS],Options,Opcoes
+[MAIN_TAB_MENU_ABOUT],About,Sobre
+,,
+[BTN_GAME_MENU_DEBUG_SCENE],Debug Scene,Cena de Depuracao
+[BTN_GAME_MENU_NEW_STORY_SCENE],New Story,Nova Historia
+[BTN_GAME_MENU_DIARY_SCENE],Diary,Diario
+[BTN_GAME_MENU_QUIT],Quit,Sair
+,,
+[LABEL_OPTIONS_MENU_SOUND_TITLE],Sound,Som
+[LABEL_OPTIONS_MENU_MASTER_SOUND],Master Volume,Volume principal
+,,
+[LABEL_OPTIONS_MENU_CONTROLS_TITLE],Controls,Controles
+[LABEL_OPTIONS_MENU_ARROW_KEYS],(arrow keys) to move,(setas do teclado) para mover
+[LABEL_OPTIONS_MENU_X_KEY],(x) to execute action,(x) para executar acao
+[LABEL_OPTIONS_MENU_TAB_KEY],(tab) to open inventory,(tab) para abrir inventario
+[LABEL_OPTIONS_MENU_ESC_KEY],(esc) to pause,(esc) para pausar
+,,
+[LABEL_ABOUT_MENU_GAME_VERSION],Version {0},Versao {0}
+[LABEL_ABOUT_MENU_MUSICS_BY],musics by,musicas por
+,,
+[TAB_DIARY_MENU_TITLE],Diary,Diario
+[BTN_DIARY_PAGE],Page {0} – No Data,Pagina {0} – Sem dados
+[BTN_RETURN],Return,Voltar
+,,
+[LABEL_PAUSE_MENU_TITLE],Paused,Pausado
+[BTN_PAUSE_MENU_CONTINUE],Continue,Continuar
+[BTN_PAUSE_MENU_EXIT_TO_MENU],Exit to menu,Sair para o menu
+,,
+,,
+[BTN_INVENTORY_CLOSE_INVENTORY],Close Inventory,Fechar inventario
+[SOME_ITEM_MSG],Some item,Algum item

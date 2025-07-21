@@ -6,15 +6,21 @@ extends Button
 
 var id: String
 
+func set_save_as_invalid():
+	var text_translated = tr(text).format([save_id])
+	text = text_translated
 
 func load_data() -> void:
 	id = "page_{0}".format([save_id])
 	var save: Dictionary = Global.config.saves[id]
 	
-	if not save.is_valid: return
+	if not save.is_valid:
+		set_save_as_invalid()
+		return
 	
 	is_valid = true
 	save_name = save.name
+
 
 func _ready() -> void:
 	load_data()

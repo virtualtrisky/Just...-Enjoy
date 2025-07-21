@@ -45,12 +45,12 @@ theme_override_styles/tab_unselected = ExtResource("4_cnpj3")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Diary" type="TabBar" parent="MarginContainer/TabContainer"]
+[node name="[TAB_DIARY_MENU_TITLE]" type="TabBar" parent="MarginContainer/TabContainer"]
 layout_mode = 2
 tab_alignment = 1
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Diary"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,58 +62,58 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 30
 
-[node name="Saves" type="VBoxContainer" parent="MarginContainer/TabContainer/Diary/MarginContainer"]
+[node name="Saves" type="VBoxContainer" parent="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Save0" type="Button" parent="MarginContainer/TabContainer/Diary/MarginContainer/Saves"]
+[node name="Save0" type="Button" parent="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]/MarginContainer/Saves"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "page 0 - No data"
+text = "[BTN_DIARY_PAGE]"
 flat = true
 script = ExtResource("7_u8nqw")
 
-[node name="Save1" type="Button" parent="MarginContainer/TabContainer/Diary/MarginContainer/Saves"]
+[node name="Save1" type="Button" parent="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]/MarginContainer/Saves"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "page 1 - No data"
+text = "[BTN_DIARY_PAGE]"
 flat = true
 script = ExtResource("7_u8nqw")
 save_id = 1
 
-[node name="Save2" type="Button" parent="MarginContainer/TabContainer/Diary/MarginContainer/Saves"]
+[node name="Save2" type="Button" parent="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]/MarginContainer/Saves"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "page 2 - No data"
+text = "[BTN_DIARY_PAGE]"
 flat = true
 script = ExtResource("7_u8nqw")
 save_id = 2
 
-[node name="Save3" type="Button" parent="MarginContainer/TabContainer/Diary/MarginContainer/Saves"]
+[node name="Save3" type="Button" parent="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]/MarginContainer/Saves"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "page 3 - No data"
+text = "[BTN_DIARY_PAGE]"
 flat = true
 script = ExtResource("7_u8nqw")
 save_id = 3
 
-[node name="Save4" type="Button" parent="MarginContainer/TabContainer/Diary/MarginContainer/Saves"]
+[node name="Save4" type="Button" parent="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]/MarginContainer/Saves"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "page 4 - No data"
+text = "[BTN_DIARY_PAGE]"
 flat = true
 script = ExtResource("7_u8nqw")
 save_id = 4
 
-[node name="Return" type="Button" parent="MarginContainer/TabContainer/Diary/MarginContainer"]
+[node name="Return" type="Button" parent="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 25
-text = "Return"
+text = "[BTN_RETURN]"
 flat = true
 
 [node name="FadeScreen" parent="." instance=ExtResource("6_66ycc")]
 layout_mode = 1
 
-[connection signal="pressed" from="MarginContainer/TabContainer/Diary/MarginContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="MarginContainer/TabContainer/[TAB_DIARY_MENU_TITLE]/MarginContainer/Return" to="." method="_on_return_pressed"]

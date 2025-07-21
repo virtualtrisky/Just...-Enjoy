@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://jq8av47j3b6o"]
+[gd_scene load_steps=11 format=3 uid="uid://jq8av47j3b6o"]
 
 [ext_resource type="Script" uid="uid://o2sh14iuvm00" path="res://scripts/player/controller.gd" id="1_ykyjo"]
 [ext_resource type="Texture2D" uid="uid://b0d55bb4m6wga" path="res://sprites/player/character.png" id="2_ykyjo"]
+[ext_resource type="PackedScene" uid="uid://dqg1pcstgr63r" path="res://objects/inventory.tscn" id="3_uxov2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykyjo"]
 radius = 5.0
@@ -130,3 +131,7 @@ editor_draw_limits = true
 libraries = {
 &"": SubResource("AnimationLibrary_f46kd")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("3_uxov2")]

@@ -169,15 +169,14 @@ theme_override_styles/tab_selected = ExtResource("2_o71fo")
 theme_override_styles/tab_hovered = ExtResource("3_6wmco")
 theme_override_styles/tab_unselected = ExtResource("4_482oc")
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
-[node name="Game" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
-visible = false
+[node name="[MAIN_TAB_MENU_GAME]" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
 layout_mode = 2
 script = ExtResource("6_axson")
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Screen/MarginContainer/TabContainer/Game"]
+[node name="MarginContainer" type="MarginContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,27 +188,27 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Just... Enjoy.
 Okay?"
 label_settings = SubResource("LabelSettings_u4hxd")
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_u4hxd")
 
-[node name="Panel" type="Panel" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,7 +217,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="DebugButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="DebugButton" type="Button" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -232,9 +231,9 @@ theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
 theme_override_styles/normal = ExtResource("6_6od1f")
-text = "Debug Scene"
+text = "[BTN_GAME_MENU_DEBUG_SCENE]"
 
-[node name="PlayButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -248,9 +247,9 @@ theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
 theme_override_styles/normal = ExtResource("6_6od1f")
-text = "New History"
+text = "[BTN_GAME_MENU_NEW_STORY_SCENE]"
 
-[node name="ContinueButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -264,9 +263,9 @@ theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
 theme_override_styles/normal = ExtResource("6_6od1f")
-text = "Diary"
+text = "[BTN_GAME_MENU_DIARY_SCENE]"
 
-[node name="ExitButton" type="Button" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -280,21 +279,23 @@ theme_override_styles/focus = ExtResource("6_yfxa8")
 theme_override_styles/hover = ExtResource("6_6od1f")
 theme_override_styles/pressed = ExtResource("6_yfxa8")
 theme_override_styles/normal = ExtResource("6_6od1f")
-text = "Quit"
+text = "[BTN_GAME_MENU_QUIT]"
 
-[node name="HelloMessage" type="Label" parent="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+[node name="HelloMessage" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Hello, [playername]"
 horizontal_alignment = 1
 script = ExtResource("10_my6g0")
 
-[node name="Options" type="TabBar" parent="Screen/MarginContainer/TabContainer" node_paths=PackedStringArray("MasterVolumeSlider")]
+[node name="[MAIN_TAB_MENU_OPTIONS]" type="TabBar" parent="Screen/MarginContainer/TabContainer" node_paths=PackedStringArray("MasterVolumeSlider")]
+visible = false
+clip_contents = true
 layout_mode = 2
 script = ExtResource("8_520ac")
 MasterVolumeSlider = NodePath("MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider")
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Screen/MarginContainer/TabContainer/Options"]
+[node name="MarginContainer" type="MarginContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -306,89 +307,89 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer"]
 layout_mode = 2
 
-[node name="VolumeCamp" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
+[node name="VolumeCamp" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp"]
+[node name="Label2" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VolumeCamp"]
 texture_filter = 1
 layout_mode = 2
-text = "sound"
+text = "[LABEL_OPTIONS_MENU_SOUND_TITLE]"
 label_settings = SubResource("LabelSettings_my6g0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MasterVolume" type="HBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp"]
+[node name="MasterVolume" type="HBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VolumeCamp"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume"]
+[node name="Label" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume"]
 layout_mode = 2
-text = "Master Volume"
+text = "[LABEL_OPTIONS_MENU_MASTER_SOUND]"
 
-[node name="HSlider" type="HSlider" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume"]
+[node name="HSlider" type="HSlider" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 value = 100.0
 
-[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 60
 theme_override_styles/separator = SubResource("StyleBoxEmpty_1iahe")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Controls" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Controls" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-text = "Controls"
+text = "[LABEL_OPTIONS_MENU_CONTROLS_TITLE]"
 label_settings = SubResource("LabelSettings_my6g0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 theme_override_styles/separator = SubResource("StyleBoxEmpty_my6g0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ArrowKeys" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="ArrowKeys" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "(arrow keys) to move"
+text = "[LABEL_OPTIONS_MENU_ARROW_KEYS]"
 horizontal_alignment = 1
 
-[node name="X" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="X" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "(x) to execute action"
+text = "[LABEL_OPTIONS_MENU_X_KEY]"
 horizontal_alignment = 1
 
-[node name="Tab" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Tab" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "(tab) to open inventory"
+text = "[LABEL_OPTIONS_MENU_TAB_KEY]"
 horizontal_alignment = 1
 
-[node name="Esc" type="Label" parent="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Esc" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "(Esc) to pause"
+text = "[LABEL_OPTIONS_MENU_ESC_KEY]"
 horizontal_alignment = 1
 
-[node name="About" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
+[node name="[MAIN_TAB_MENU_ABOUT]" type="TabBar" parent="Screen/MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
 script = ExtResource("8_vjll7")
 metadata/_tab_index = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Screen/MarginContainer/TabContainer/About"]
+[node name="MarginContainer" type="MarginContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -400,42 +401,42 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/About/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]/MarginContainer"]
 layout_mode = 2
 
-[node name="GameVersion" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer"]
+[node name="GameVersion" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Version [x.y.z]"
+text = "[LABEL_ABOUT_MENU_GAME_VERSION]"
 label_settings = SubResource("LabelSettings_yfxa8")
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 70
 
-[node name="Credits" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer"]
+[node name="Credits" type="VBoxContainer" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="MusicBy" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
+[node name="MusicBy" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]/MarginContainer/VBoxContainer/Credits"]
 layout_mode = 2
-text = "Musics By"
+text = "[LABEL_ABOUT_MENU_MUSICS_BY]"
 label_settings = SubResource("LabelSettings_1iahe")
 horizontal_alignment = 1
 
-[node name="Label1" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
+[node name="Label1" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]/MarginContainer/VBoxContainer/Credits"]
 layout_mode = 2
 text = "Emily A. Sprague - Long Walks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer/Credits"]
+[node name="Label2" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]/MarginContainer/VBoxContainer/Credits"]
 layout_mode = 2
 text = "Chris Haugen -  Sleep Music No. 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text" type="Label" parent="Screen/MarginContainer/TabContainer/About/MarginContainer/VBoxContainer"]
+[node name="Text" type="Label" parent="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
@@ -459,8 +460,8 @@ libraries = {
 }
 autoplay = "fade_out"
 
-[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/DebugButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_debug_button_pressed"]
-[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/ContinueButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_continue_button_2_pressed"]
-[connection signal="pressed" from="Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/ExitButton" to="Screen/MarginContainer/TabContainer/Game" method="_on_exit_button_pressed"]
-[connection signal="value_changed" from="Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider" to="Screen/MarginContainer/TabContainer/Options" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer/DebugButton" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]" method="_on_debug_button_pressed"]
+[connection signal="pressed" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer/ContinueButton" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]" method="_on_continue_button_2_pressed"]
+[connection signal="pressed" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer/ExitButton" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]" method="_on_exit_button_pressed"]
+[connection signal="value_changed" from="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider" to="Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]" method="_on_h_slider_value_changed"]

@@ -1,0 +1,535 @@
+[gd_scene load_steps=14 format=3 uid="uid://dqg1pcstgr63r"]
+
+[ext_resource type="Script" uid="uid://dsr1dm4ftyudc" path="res://scripts/inventory_screen/controller.gd" id="1_gyk8n"]
+[ext_resource type="StyleBox" uid="uid://pgvf28664moo" path="res://resources/menu_buttons/pressed_style.tres" id="1_uif6u"]
+[ext_resource type="StyleBox" uid="uid://oypipmf341vs" path="res://resources/menu_buttons/normal_style.tres" id="2_gyk8n"]
+[ext_resource type="Texture2D" uid="uid://dcrbaej1ih4pd" path="res://sprites/inventory/background.png" id="5_baaw3"]
+[ext_resource type="Script" uid="uid://hhe2pxmqxrh2" path="res://scripts/inventory_screen/item_individual.gd" id="5_rsnoo"]
+
+[sub_resource type="Gradient" id="Gradient_lluxm"]
+colors = PackedColorArray(0, 0, 0, 0.784314, 0, 0, 0, 0.784314)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bx27n"]
+gradient = SubResource("Gradient_lluxm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lluxm"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx27n"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsnoo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_baaw3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vdx2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06jrg"]
+
+[node name="Inventory" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_gyk8n")
+
+[node name="Camp" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Camp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_bx27n")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Camp/MarginContainer"]
+layout_mode = 2
+split_offset = -280
+dragging_enabled = false
+dragger_visibility = 2
+drag_area_margin_begin = 175
+
+[node name="PanelContainer" type="PanelContainer" parent="Camp/MarginContainer/HSplitContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lluxm")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camp/MarginContainer/HSplitContainer/PanelContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camp/MarginContainer/HSplitContainer/PanelContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="CloseInventory" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../../../PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0")
+focus_neighbor_bottom = NodePath(".")
+theme_override_colors/font_hover_color = Color(0.866667, 0.866667, 0.866667, 1)
+theme_override_colors/font_color = Color(0.32549, 0.32549, 0.32549, 1)
+theme_override_colors/font_focus_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_styles/focus = ExtResource("1_uif6u")
+theme_override_styles/hover = ExtResource("2_gyk8n")
+theme_override_styles/pressed = ExtResource("1_uif6u")
+theme_override_styles/normal = ExtResource("2_gyk8n")
+text = "[BTN_INVENTORY_CLOSE_INVENTORY]"
+autowrap_mode = 3
+clip_text = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="Camp/MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_bx27n")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+split_offset = 100
+
+[node name="GridContainer" type="GridContainer" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 54
+theme_override_constants/v_separation = 20
+columns = 7
+
+[node name="CenterContainer0" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_rsnoo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_baaw3")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer1" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer2" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer3" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer4" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer5" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer6" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer7" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer8" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer9" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer10" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer11" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer12" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer13" type="Button" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0vdx2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06jrg")
+script = ExtResource("5_rsnoo")
+
+[node name="Background" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13"]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("5_baaw3")
+
+[node name="TextureRect" type="TextureRect" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Camp/MarginContainer/HSplitContainer/PanelContainer/MarginContainer/VBoxContainer/CloseInventory" to="." method="_on_close_inventory_pressed"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0" method="_on_focus_entered" binds= [0]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0" method="_on_focus_entered" binds= [0]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer0" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1" method="_on_focus_entered" binds= [1]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1" method="_on_focus_entered" binds= [1]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer1" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2" method="_on_focus_entered" binds= [2]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2" method="_on_focus_entered" binds= [2]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer2" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3" method="_on_focus_entered" binds= [3]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3" method="_on_focus_entered" binds= [3]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer3" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4" method="_on_focus_entered" binds= [4]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4" method="_on_focus_entered" binds= [4]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer4" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5" method="_on_focus_entered" binds= [5]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5" method="_on_focus_entered" binds= [5]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer5" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6" method="_on_focus_entered" binds= [6]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6" method="_on_focus_entered" binds= [6]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer6" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7" method="_on_focus_entered" binds= [7]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7" method="_on_focus_entered" binds= [7]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer7" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8" method="_on_focus_entered" binds= [8]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8" method="_on_focus_entered" binds= [8]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer8" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9" method="_on_focus_entered" binds= [9]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9" method="_on_focus_entered" binds= [9]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer9" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10" method="_on_focus_entered" binds= [10]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10" method="_on_focus_entered" binds= [10]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer10" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11" method="_on_focus_entered" binds= [11]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11" method="_on_focus_entered" binds= [11]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer11" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12" method="_on_focus_entered" binds= [12]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12" method="_on_focus_entered" binds= [12]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer12" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13" method="_on_focus_entered" binds= [13]]
+[connection signal="focus_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13" method="_on_focus_entered" binds= [13]]
+[connection signal="mouse_exited" from="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13" to="Camp/MarginContainer/HSplitContainer/PanelContainer2/MarginContainer/VSplitContainer/GridContainer/CenterContainer13" method="_on_focus_exited"]

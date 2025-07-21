@@ -2,17 +2,17 @@ extends Node
 
 var active_tab_index = 0
 @onready var tabs: Array[TabBar] = [
-	$Screen/MarginContainer/TabContainer/Game,
-	$Screen/MarginContainer/TabContainer/Options,
-	$Screen/MarginContainer/TabContainer/About
+	$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]",
+	$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]",
+	$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_ABOUT]"
 ]
 
 
 func update_focus():
 	if active_tab_index == 0:
-		$Screen/MarginContainer/TabContainer/Game/MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton.grab_focus()
+		$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_GAME]/MarginContainer/VBoxContainer/Panel/VBoxContainer/PlayButton".grab_focus()
 	elif active_tab_index == 1:
-		$Screen/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider.grab_focus()
+		$"Screen/MarginContainer/TabContainer/[MAIN_TAB_MENU_OPTIONS]/MarginContainer/VBoxContainer/VolumeCamp/MasterVolume/HSlider".grab_focus()
 
 
 func update_tab():
